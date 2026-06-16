@@ -3,24 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lira Brasil | Alma tropicana, feito à mão</title>
-  <meta name="description" content="Tema premium Shopify para Lira Brasil: loja mobile-first, produtos artesanais, coleções, vitrine e compra rápida.">
+  <title>Lira Brasil | Tema Shopify Premium</title>
+  <meta name="description" content="Tema Shopify premium para Lira Brasil: bolsas, chapeus e acessorios artesanais com experiencia mobile-first, editorial e pronta para conversao.">
+  <meta property="og:title" content="Lira Brasil | Alma tropicana, feito a mao">
+  <meta property="og:description" content="Uma home Shopify premium, mobile-first e editorial para produtos artesanais brasileiros.">
   <style>
     :root {
-      --ink: #0e0d0b;
-      --coffee: #2a1b14;
-      --earth: #8b5538;
-      --buriti: #c7772b;
-      --clay: #9b5f3e;
-      --straw: #d8b982;
-      --sand: #efe6d8;
-      --cotton: #faf7ef;
-      --white: #fffaf1;
-      --muted: #7b6757;
-      --line: rgba(42, 27, 20, .16);
-      --shadow: 0 18px 54px rgba(42, 27, 20, .14);
+      color-scheme: light;
+      --ink: #11100d;
+      --deep: #241711;
+      --cocoa: #4b2f22;
+      --earth: #855035;
+      --buriti: #bf742f;
+      --straw: #d9bd87;
+      --sand: #eee2d0;
+      --porcelain: #fbf7ee;
+      --paper: #fffaf1;
+      --muted: #7b6758;
+      --line: rgba(36, 23, 17, .14);
+      --line-dark: rgba(255, 250, 241, .16);
+      --soft-shadow: 0 16px 46px rgba(36, 23, 17, .12);
+      --deep-shadow: 0 28px 80px rgba(17, 16, 13, .26);
       --serif: "Times New Roman", Georgia, serif;
       --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --container: min(100% - 36px, 1180px);
     }
 
     * { box-sizing: border-box; }
@@ -28,90 +34,87 @@
     body {
       margin: 0;
       font-family: var(--sans);
-      color: var(--coffee);
+      color: var(--deep);
       background:
-        radial-gradient(circle at 20% 0%, rgba(199, 119, 43, .16), transparent 28rem),
-        linear-gradient(180deg, var(--cotton), var(--sand) 54%, #f7eee0);
+        radial-gradient(circle at 86% -12%, rgba(191,116,47,.2), transparent 28rem),
+        linear-gradient(180deg, var(--porcelain) 0%, var(--sand) 54%, #f7edde 100%);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
-      padding-bottom: 76px;
+      text-rendering: optimizeLegibility;
+      padding-bottom: 78px;
     }
 
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
+    button, input { font: inherit; }
+    h1, h2, h3, p { margin: 0; }
 
-    .page {
-      min-height: 100vh;
-    }
+    .page { min-height: 100vh; }
 
     .announcement {
       display: flex;
       justify-content: center;
-      padding: 9px 18px;
+      padding: 8px 18px;
       background: var(--ink);
-      color: var(--white);
+      color: rgba(255,250,241,.82);
       font-size: 10px;
-      letter-spacing: .14em;
+      font-weight: 750;
+      letter-spacing: .16em;
       text-transform: uppercase;
     }
 
-    .nav {
+    .site-header {
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 30;
+      border-bottom: 1px solid var(--line);
+      background: rgba(251,247,238,.82);
+      backdrop-filter: blur(20px) saturate(1.15);
+    }
+
+    .site-header__inner {
+      min-height: 66px;
+      width: var(--container);
+      margin-inline: auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 64px;
-      padding: 0 18px;
-      background: rgba(250, 247, 239, .86);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--line);
+      gap: 16px;
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 11px;
       min-width: 0;
     }
 
     .mark {
       width: 42px;
       height: 42px;
+      flex: 0 0 auto;
       display: grid;
       place-items: center;
-      border-radius: 50%;
-      color: var(--white);
-      position: relative;
-      flex: 0 0 auto;
-      filter: drop-shadow(5px 5px 0 rgba(139, 85, 56, .18));
+      filter: drop-shadow(5px 5px 0 rgba(133,80,53,.18));
     }
 
-    .logo-mark {
-      display: block;
-      width: 100%;
-      height: 100%;
-      overflow: visible;
-    }
-
+    .logo-mark { width: 100%; height: 100%; overflow: visible; }
     .logo-mark .sun-disc { fill: var(--buriti); }
-    .logo-mark .sun-shadow { fill: rgba(139, 85, 56, .34); }
+    .logo-mark .sun-shadow { fill: rgba(133,80,53,.35); }
     .logo-mark .sun-ring,
     .logo-mark .weave-line,
     .logo-mark .ray-line {
       fill: none;
-      stroke: var(--white);
+      stroke: var(--paper);
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-    .logo-mark .sun-ring { stroke-width: 1.15; opacity: .58; }
-    .logo-mark .weave-line { stroke-width: 1.45; opacity: .48; }
+    .logo-mark .sun-ring { stroke-width: 1.1; opacity: .6; }
+    .logo-mark .weave-line { stroke-width: 1.45; opacity: .5; }
     .logo-mark .ray-line { stroke-width: 1.35; opacity: .42; }
     .logo-mark .letter-l {
       fill: none;
-      stroke: var(--white);
+      stroke: var(--paper);
       stroke-width: 4.4;
       stroke-linecap: round;
       stroke-linejoin: round;
@@ -123,50 +126,32 @@
       gap: .16em;
       font-family: var(--serif);
       font-weight: 400;
-      letter-spacing: .01em;
       line-height: .78;
+      letter-spacing: 0;
     }
 
-    .wordmark .lira {
-      font-size: 1.52em;
-      color: var(--coffee);
-    }
-
+    .wordmark .lira { color: var(--deep); font-size: 1.48em; }
     .wordmark .brasil {
+      color: var(--earth);
       font-family: var(--sans);
-      font-size: .58em;
+      font-size: .56em;
       font-weight: 900;
       letter-spacing: .18em;
       text-transform: uppercase;
-      color: var(--earth);
       transform: translateY(-.08em);
-    }
-
-    .brand-text {
-      display: grid;
-      line-height: 1;
-    }
-
-    .brand-name {
-      font-size: 15px;
-      font-weight: 800;
     }
 
     .brand-sub {
       margin-top: 5px;
-      font-size: 9px;
       color: var(--muted);
-      letter-spacing: .16em;
+      font-size: 9px;
+      font-weight: 750;
+      letter-spacing: .18em;
       text-transform: uppercase;
       white-space: nowrap;
     }
 
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
+    .icon-nav { display: flex; gap: 8px; }
     .icon-btn {
       width: 38px;
       height: 38px;
@@ -174,110 +159,75 @@
       place-items: center;
       border: 1px solid var(--line);
       border-radius: 999px;
-      background: rgba(255, 250, 241, .62);
-      color: var(--coffee);
+      background: rgba(255,250,241,.66);
+      color: var(--deep);
+      transition: transform .22s ease, background .22s ease, border-color .22s ease;
     }
+    .icon-btn:hover { transform: translateY(-1px); background: var(--paper); border-color: rgba(36,23,17,.22); }
+    .icon-btn svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 1.8; }
 
-    .icon-btn svg {
-      width: 17px;
-      height: 17px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 1.8;
-    }
-
-    .category-nav {
+    .shopify-tabs {
       position: sticky;
-      top: 64px;
-      z-index: 9;
+      top: 66px;
+      z-index: 24;
       display: flex;
       gap: 8px;
       overflow-x: auto;
-      padding: 10px 18px;
-      background: rgba(250, 247, 239, .92);
-      backdrop-filter: blur(18px);
+      padding: 10px max(18px, calc((100vw - 1180px) / 2));
       border-bottom: 1px solid var(--line);
+      background: rgba(251,247,238,.88);
+      backdrop-filter: blur(18px);
       scrollbar-width: none;
     }
-
-    .category-nav::-webkit-scrollbar { display: none; }
-
-    .category-chip {
+    .shopify-tabs::-webkit-scrollbar { display: none; }
+    .shopify-tab {
       flex: 0 0 auto;
+      min-height: 34px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 34px;
       padding: 0 13px;
-      border-radius: 999px;
       border: 1px solid var(--line);
-      background: rgba(255, 250, 241, .75);
-      color: var(--coffee);
+      border-radius: 999px;
+      background: rgba(255,250,241,.76);
+      color: var(--deep);
       font-size: 10px;
       font-weight: 850;
-      letter-spacing: .12em;
+      letter-spacing: .13em;
       text-transform: uppercase;
     }
+    .shopify-tab.is-active { background: var(--deep); color: var(--paper); border-color: var(--deep); }
 
-    .category-chip.is-active {
-      background: var(--coffee);
-      border-color: var(--coffee);
-      color: var(--white);
+    .section {
+      width: var(--container);
+      margin-inline: auto;
+      padding: 64px 0;
     }
 
-    .hero {
-      min-height: calc(100svh - 94px);
-      display: grid;
-      grid-template-rows: minmax(420px, 63svh) auto;
-      background: var(--ink);
-      color: var(--white);
-    }
-
-    .hero-media {
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .hero-media img {
+    .section--flush {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      filter: saturate(.92) contrast(1.04);
-      transform: scale(1.01);
+      padding: 0;
     }
 
-    .hero-media::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(14, 13, 11, .06), rgba(14, 13, 11, .28) 48%, rgba(14, 13, 11, .88)),
-        radial-gradient(circle at 20% 20%, rgba(199, 119, 43, .22), transparent 24rem);
-      z-index: 1;
+    .section__head {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 28px;
     }
 
-    .hero-copy {
-      margin-top: -170px;
-      z-index: 2;
-      position: relative;
-      padding: 0 20px 34px;
-      align-self: end;
+    .eyebrow, .section-kicker {
+      color: var(--buriti);
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: .22em;
+      text-transform: uppercase;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 14px;
-      color: var(--straw);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .22em;
-      text-transform: uppercase;
     }
-
     .eyebrow::before {
       content: "";
       width: 30px;
@@ -285,76 +235,28 @@
       background: currentColor;
     }
 
-    h1, h2, h3, p { margin: 0; }
-
-    .hero h1 {
-      max-width: 11ch;
+    .display {
       font-family: var(--serif);
       font-weight: 400;
-      font-size: clamp(4.4rem, 20vw, 8.5rem);
-      line-height: .74;
+      letter-spacing: 0;
+      line-height: .82;
+    }
+
+    .section-title {
+      max-width: 12ch;
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 14vw, 6.8rem);
+      font-weight: 400;
+      line-height: .86;
       letter-spacing: 0;
     }
+    .section-title em { color: var(--buriti); font-style: italic; }
 
-    .hero h1 em {
-      display: block;
-      color: var(--straw);
-      font-style: italic;
-      font-size: .42em;
-      line-height: 1.12;
-      margin-top: 16px;
-    }
-
-    .hero-desc {
-      max-width: 35rem;
-      margin-top: 20px;
-      color: rgba(255, 250, 241, .78);
+    .section-copy {
+      max-width: 42rem;
+      color: var(--muted);
       font-size: 15px;
-      line-height: 1.7;
-    }
-
-    .hero-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 24px;
-    }
-
-    .hero-proof {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 12px;
-      align-items: center;
-      margin-top: 18px;
-      padding: 12px;
-      max-width: 390px;
-      border: 1px solid rgba(255, 250, 241, .16);
-      border-radius: 8px;
-      background: rgba(255, 250, 241, .08);
-      backdrop-filter: blur(10px);
-    }
-
-    .hero-proof img {
-      width: 54px;
-      height: 68px;
-      object-fit: cover;
-      border-radius: 6px;
-    }
-
-    .hero-proof strong {
-      display: block;
-      color: var(--white);
-      font-size: 12px;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-
-    .hero-proof span {
-      display: block;
-      margin-top: 4px;
-      color: rgba(255, 250, 241, .68);
-      font-size: 12px;
-      line-height: 1.45;
+      line-height: 1.72;
     }
 
     .btn {
@@ -364,122 +266,137 @@
       justify-content: center;
       gap: 9px;
       padding: 0 18px;
-      border-radius: 999px;
       border: 1px solid transparent;
+      border-radius: 999px;
       font-size: 11px;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: .14em;
       text-transform: uppercase;
+      transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
     }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 14px 34px rgba(17,16,13,.16); }
+    .btn-primary { background: var(--paper); color: var(--ink); }
+    .btn-dark { background: var(--deep); color: var(--paper); }
+    .btn-ghost { color: var(--paper); border-color: rgba(255,250,241,.32); background: rgba(255,250,241,.08); }
 
-    .btn-primary {
-      background: var(--white);
-      color: var(--ink);
-    }
-
-    .btn-ghost {
-      color: var(--white);
-      border-color: rgba(255, 250, 241, .34);
-      background: rgba(255, 250, 241, .08);
-    }
-
-    .section {
-      padding: 58px 18px;
-    }
-
-    .section.dark {
-      background: var(--ink);
-      color: var(--white);
-    }
-
-    .section-head {
+    .hero {
+      min-height: calc(100svh - 110px);
       display: grid;
-      gap: 10px;
-      margin-bottom: 28px;
+      grid-template-rows: minmax(430px, 64svh) auto;
+      background: var(--ink);
+      color: var(--paper);
+      isolation: isolate;
     }
-
-    .section-kicker {
-      color: var(--buriti);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .2em;
-      text-transform: uppercase;
+    .hero__media { position: relative; overflow: hidden; }
+    .hero__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: saturate(.9) contrast(1.05);
+      transform: scale(1.01);
     }
-
-    .section-title {
-      font-family: var(--serif);
-      font-size: clamp(2.35rem, 11vw, 5.3rem);
-      font-weight: 400;
-      line-height: .92;
-      max-width: 12ch;
+    .hero__media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(17,16,13,.04), rgba(17,16,13,.28) 48%, rgba(17,16,13,.9)),
+        radial-gradient(circle at 72% 14%, rgba(191,116,47,.25), transparent 24rem);
     }
-
-    .section-title em {
-      color: var(--buriti);
+    .hero__content {
+      z-index: 2;
+      margin-top: -168px;
+      padding: 0 max(18px, calc((100vw - 1180px) / 2)) 34px;
+    }
+    .hero h1 {
+      max-width: 10.5ch;
+      margin-top: 14px;
+      font-size: clamp(4.5rem, 20vw, 9.5rem);
+    }
+    .hero h1 em {
+      display: block;
+      margin-top: 16px;
+      color: var(--straw);
+      font-size: .42em;
       font-style: italic;
+      line-height: 1.05;
     }
-
-    .section-copy {
-      max-width: 52rem;
-      color: var(--muted);
+    .hero__copy {
+      max-width: 35rem;
+      margin-top: 20px;
+      color: rgba(255,250,241,.76);
       font-size: 15px;
-      line-height: 1.75;
+      line-height: 1.72;
     }
-
-    .dark .section-copy { color: rgba(255, 250, 241, .68); }
-
-    .brand-strip {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding: 14px 18px;
-      background: var(--coffee);
-      color: var(--white);
-      scrollbar-width: none;
+    .hero__actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      max-width: 430px;
+      margin-top: 24px;
     }
-
-    .brand-strip::-webkit-scrollbar { display: none; }
-
-    .pill {
-      flex: 0 0 auto;
-      padding: 9px 14px;
-      border: 1px solid rgba(255, 250, 241, .18);
-      border-radius: 999px;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .12em;
+    .hero__product {
+      max-width: 420px;
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid var(--line-dark);
+      border-radius: 8px;
+      background: rgba(255,250,241,.08);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 48px rgba(0,0,0,.18);
+    }
+    .hero__product img {
+      width: 56px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .hero__product strong {
+      display: block;
+      color: var(--paper);
+      font-size: 12px;
+      letter-spacing: .08em;
       text-transform: uppercase;
-      color: rgba(255, 250, 241, .82);
+    }
+    .hero__product span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255,250,241,.64);
+      font-size: 12px;
+    }
+    .hero__product small {
+      color: var(--straw);
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
     }
 
-    .trust-grid {
+    .signal-strip {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
-      padding: 12px 18px;
-      background: var(--cotton);
+      gap: 1px;
+      background: var(--line);
       border-bottom: 1px solid var(--line);
     }
-
-    .trust-item {
-      min-height: 66px;
+    .signal {
+      min-height: 76px;
       display: grid;
       align-content: center;
       gap: 4px;
-      padding: 12px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(255, 250, 241, .78);
+      padding: 14px 18px;
+      background: rgba(255,250,241,.72);
     }
-
-    .trust-item strong {
-      color: var(--coffee);
+    .signal strong {
       font-size: 11px;
-      letter-spacing: .1em;
+      letter-spacing: .12em;
       text-transform: uppercase;
     }
-
-    .trust-item span {
+    .signal span {
       color: var(--muted);
       font-size: 11px;
       line-height: 1.35;
@@ -487,919 +404,750 @@
 
     .collection-grid {
       display: grid;
-      grid-template-columns: 1fr;
       gap: 12px;
     }
-
-    .collection-card {
-      min-height: 380px;
+    .collection-card, .look-card {
       position: relative;
+      min-height: 420px;
       overflow: hidden;
-      border-radius: 8px;
-      background: var(--coffee);
-      color: var(--white);
-      isolation: isolate;
-    }
-
-    .collection-card img {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      inset: 0;
-      object-fit: cover;
-      filter: saturate(.9) contrast(1.04);
-      transition: transform .7s ease;
-    }
-
-    .collection-card:hover img { transform: scale(1.04); }
-
-    .collection-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 20%, rgba(14, 13, 11, .28) 50%, rgba(14, 13, 11, .82));
-      z-index: 1;
-    }
-
-    .collection-content {
-      position: absolute;
-      left: 18px;
-      right: 18px;
-      bottom: 18px;
-      z-index: 2;
-      display: grid;
-      gap: 12px;
-    }
-
-    .collection-content h3 {
-      font-family: var(--serif);
-      font-weight: 400;
-      font-size: 2.65rem;
-      line-height: .9;
-    }
-
-    .collection-content p {
-      max-width: 28rem;
-      color: rgba(255, 250, 241, .74);
-      font-size: 13px;
-      line-height: 1.55;
-    }
-
-    .shop-row {
-      display: flex;
-      gap: 12px;
-      overflow-x: auto;
-      margin-inline: -18px;
-      padding: 0 18px 14px;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-    }
-
-    .shop-row::-webkit-scrollbar { display: none; }
-
-    .product {
-      flex: 0 0 min(76vw, 298px);
-      scroll-snap-align: center;
-      background: rgba(255, 250, 241, .78);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 12px 32px rgba(42, 27, 20, .08);
-    }
-
-    .product-media {
-      aspect-ratio: 4 / 5;
-      background: #eadcc9;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .product-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .5s ease;
-    }
-
-    .product:hover .product-media img { transform: scale(1.04); }
-
-    .product-info {
-      padding: 15px;
-      display: grid;
-      gap: 9px;
-    }
-
-    .product-badge {
-      position: absolute;
-      left: 10px;
-      top: 10px;
-      z-index: 1;
-      padding: 7px 9px;
-      border-radius: 999px;
-      background: rgba(250, 247, 239, .92);
-      color: var(--coffee);
-      font-size: 9px;
-      font-weight: 900;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .product-name {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 12px;
-      font-family: var(--serif);
-      font-size: 1.32rem;
-      line-height: 1;
-    }
-
-    .price {
-      color: var(--buriti);
-      font-family: var(--sans);
-      font-size: 12px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .product-info p {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.5;
-    }
-
-    .product-quick {
-      min-height: 38px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      border-radius: 999px;
-      background: var(--coffee);
-      color: var(--white);
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-
-    .shop-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .shop-dots {
-      display: inline-flex;
-      gap: 5px;
-    }
-
-    .shop-dots span {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: rgba(42, 27, 20, .2);
-    }
-
-    .shop-dots span:first-child {
-      width: 20px;
-      background: var(--buriti);
-    }
-
-    .story {
-      display: grid;
-      gap: 22px;
-    }
-
-    .story-media {
-      position: relative;
-      min-height: 430px;
-      border-radius: 8px;
-      overflow: hidden;
-      background: var(--coffee);
-      box-shadow: var(--shadow);
-    }
-
-    .story-media img {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      inset: 0;
-      object-fit: cover;
-      filter: saturate(.9) contrast(1.06);
-    }
-
-    .story-card {
-      border: 1px solid rgba(255, 250, 241, .14);
-      border-radius: 8px;
-      padding: 22px;
-      background:
-        linear-gradient(135deg, rgba(199, 119, 43, .18), transparent 36%),
-        rgba(255, 250, 241, .05);
-    }
-
-    .story-card p {
-      color: rgba(255, 250, 241, .74);
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    .quote {
-      margin-top: 18px;
-      font-family: var(--serif);
-      font-size: 2.1rem;
-      line-height: .98;
-      color: var(--straw);
-    }
-
-    .stack-shop {
-      display: grid;
-      gap: 12px;
-    }
-
-    .feature-product {
-      display: grid;
-      gap: 0;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(255, 250, 241, .82);
-      box-shadow: 0 14px 42px rgba(42, 27, 20, .1);
-    }
-
-    .feature-product__media {
-      min-height: 430px;
-      position: relative;
-      overflow: hidden;
-      background: var(--sand);
-    }
-
-    .feature-product__media img {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      inset: 0;
-      object-fit: cover;
-    }
-
-    .feature-product__panel {
-      display: grid;
-      gap: 16px;
-      padding: 20px;
-    }
-
-    .product-rating {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--buriti);
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .feature-product h3 {
-      font-family: var(--serif);
-      font-size: clamp(2.45rem, 12vw, 5.2rem);
-      font-weight: 400;
-      line-height: .88;
-    }
-
-    .feature-product__copy {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    .variant-row {
-      display: grid;
-      gap: 9px;
-    }
-
-    .variant-row strong {
-      color: var(--coffee);
-      font-size: 10px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-
-    .variant-options {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .variant-options span {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 34px;
-      padding: 0 12px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--white);
-      font-size: 11px;
-      font-weight: 800;
-      color: var(--coffee);
-    }
-
-    .feature-price {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 16px;
-      padding-top: 4px;
-      border-top: 1px solid var(--line);
-    }
-
-    .feature-price strong {
-      color: var(--coffee);
-      font-size: 12px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .feature-price span {
-      font-family: var(--serif);
-      color: var(--buriti);
-      font-size: 2rem;
-    }
-
-    .feature-product .btn-primary {
-      background: var(--coffee);
-      color: var(--white);
-    }
-
-    .stack-card {
-      position: relative;
-      overflow: hidden;
-      min-height: 360px;
       border-radius: 8px;
       background: var(--ink);
-      color: var(--white);
+      color: var(--paper);
       isolation: isolate;
+      box-shadow: var(--soft-shadow);
     }
-
-    .stack-card img {
+    .collection-card img, .look-card img {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: .78;
-      filter: saturate(.84) contrast(1.08);
+      filter: saturate(.88) contrast(1.06);
+      transition: transform .75s cubic-bezier(.2,.8,.2,1);
     }
-
-    .stack-card::after {
+    .collection-card:hover img, .look-card:hover img { transform: scale(1.045); }
+    .collection-card::after, .look-card::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(14,13,11,.05), rgba(14,13,11,.78));
       z-index: 1;
+      background: linear-gradient(180deg, rgba(17,16,13,.04), rgba(17,16,13,.24) 44%, rgba(17,16,13,.86));
     }
-
-    .stack-card__content {
+    .collection-card__content, .look-card__content {
       position: absolute;
-      z-index: 2;
       left: 18px;
       right: 18px;
       bottom: 18px;
+      z-index: 2;
       display: grid;
-      gap: 10px;
+      gap: 11px;
     }
-
-    .stack-card__content h3 {
+    .collection-card h3, .look-card h3 {
+      max-width: 9ch;
       font-family: var(--serif);
+      font-size: 3rem;
       font-weight: 400;
-      font-size: 2.65rem;
-      line-height: .9;
+      line-height: .86;
     }
-
-    .stack-card__content p {
+    .collection-card p, .look-card p {
+      max-width: 29rem;
       color: rgba(255,250,241,.72);
       font-size: 13px;
       line-height: 1.55;
     }
 
-    .review-strip {
-      display: grid;
-      gap: 10px;
+    .product-rail {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      margin-inline: calc((100vw - min(100vw - 36px, 1180px)) / -2);
+      padding: 2px max(18px, calc((100vw - 1180px) / 2)) 18px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
     }
-
-    .review-card {
-      display: grid;
-      gap: 10px;
-      padding: 18px;
+    .product-rail::-webkit-scrollbar { display: none; }
+    .product-card {
+      flex: 0 0 min(77vw, 312px);
+      scroll-snap-align: center;
+      overflow: hidden;
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: rgba(255,250,241,.78);
+      background: rgba(255,250,241,.84);
+      box-shadow: 0 14px 36px rgba(36,23,17,.09);
     }
-
-    .review-card strong {
-      color: var(--buriti);
-      font-size: 12px;
+    .product-card__media {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: #e8dac5;
+    }
+    .product-card__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .55s ease;
+    }
+    .product-card:hover img { transform: scale(1.04); }
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 2;
+      padding: 7px 9px;
+      border-radius: 999px;
+      background: rgba(255,250,241,.92);
+      color: var(--deep);
+      font-size: 9px;
+      font-weight: 900;
       letter-spacing: .12em;
       text-transform: uppercase;
     }
-
-    .review-card p {
-      color: var(--coffee);
-      font-family: var(--serif);
-      font-size: 1.45rem;
-      line-height: 1.12;
-    }
-
-    .newsletter {
+    .product-card__body {
       display: grid;
-      gap: 18px;
-      padding: 28px 18px;
-      background: var(--ink);
-      color: var(--white);
+      gap: 10px;
+      padding: 15px;
     }
-
-    .newsletter h2 {
+    .product-card__title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
       font-family: var(--serif);
-      font-weight: 400;
-      font-size: clamp(2.6rem, 13vw, 5.4rem);
-      line-height: .88;
+      font-size: 1.36rem;
+      line-height: 1;
     }
-
-    .newsletter p {
-      color: rgba(255,250,241,.68);
-      line-height: 1.7;
-      max-width: 38rem;
+    .price {
+      color: var(--buriti);
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
     }
-
-    .newsletter-form {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 8px;
-      min-height: 52px;
+    .product-card p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
     }
-
-    .newsletter-form input {
-      min-width: 0;
-      border: 1px solid rgba(255,250,241,.18);
+    .quick-add {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 999px;
-      padding: 0 16px;
-      background: rgba(255,250,241,.08);
-      color: var(--white);
-      font: inherit;
-    }
-
-    .newsletter-form input::placeholder { color: rgba(255,250,241,.48); }
-
-    .newsletter-form button {
-      border: 0;
-      border-radius: 999px;
-      padding: 0 18px;
-      background: var(--buriti);
-      color: var(--white);
+      background: var(--deep);
+      color: var(--paper);
       font-size: 10px;
       font-weight: 900;
       letter-spacing: .14em;
       text-transform: uppercase;
     }
 
-    .newsletter-form button:focus,
-    .newsletter-form input:focus,
-    .btn:focus,
-    .category-chip:focus,
-    .icon-btn:focus {
-      outline: 2px solid var(--buriti);
-      outline-offset: 3px;
+    .rail-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+    .rail-dots { display: inline-flex; gap: 5px; }
+    .rail-dots span {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(36,23,17,.18);
+    }
+    .rail-dots span:first-child { width: 22px; background: var(--buriti); }
+
+    .story-section {
+      width: 100%;
+      padding: 70px max(18px, calc((100vw - 1180px) / 2));
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .story {
+      display: grid;
+      gap: 22px;
+    }
+    .story__media {
+      position: relative;
+      min-height: 440px;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: var(--deep-shadow);
+    }
+    .story__media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.86) contrast(1.08);
+    }
+    .story__panel {
+      display: grid;
+      gap: 18px;
+      padding: 22px;
+      border: 1px solid var(--line-dark);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(191,116,47,.2), transparent 36%),
+        rgba(255,250,241,.055);
+    }
+    .story__panel p {
+      color: rgba(255,250,241,.72);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+    .quote {
+      color: var(--straw);
+      font-family: var(--serif);
+      font-size: 2.18rem;
+      line-height: .98;
+    }
+
+    .feature-product {
+      overflow: hidden;
+      display: grid;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,250,241,.86);
+      box-shadow: var(--soft-shadow);
+    }
+    .feature-product__media {
+      position: relative;
+      min-height: 450px;
+      overflow: hidden;
+      background: var(--sand);
+    }
+    .feature-product__media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .feature-product__panel {
+      display: grid;
+      gap: 16px;
+      padding: 22px;
+    }
+    .rating {
+      color: var(--buriti);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .feature-product h3 {
+      font-family: var(--serif);
+      font-size: clamp(2.7rem, 13vw, 5.5rem);
+      font-weight: 400;
+      line-height: .86;
+    }
+    .feature-product p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .variant-group { display: grid; gap: 9px; }
+    .variant-group strong {
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .variant-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .variant-list span {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--deep);
+      font-size: 11px;
+      font-weight: 850;
+    }
+    .feature-price {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 18px;
+      padding-top: 4px;
+      border-top: 1px solid var(--line);
+    }
+    .feature-price strong {
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .feature-price span {
+      color: var(--buriti);
+      font-family: var(--serif);
+      font-size: 2.1rem;
+    }
+
+    .look-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .review-grid {
+      display: grid;
+      gap: 10px;
+    }
+    .review-card {
+      display: grid;
+      gap: 12px;
+      padding: 19px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,250,241,.78);
+    }
+    .review-card strong {
+      color: var(--buriti);
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .review-card p {
+      color: var(--deep);
+      font-family: var(--serif);
+      font-size: 1.48rem;
+      line-height: 1.12;
+    }
+
+    .newsletter {
+      width: 100%;
+      display: grid;
+      gap: 20px;
+      padding: 36px max(18px, calc((100vw - 1180px) / 2));
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .newsletter h2 {
+      max-width: 8ch;
+      font-family: var(--serif);
+      font-size: clamp(3rem, 14vw, 6rem);
+      font-weight: 400;
+      line-height: .84;
+    }
+    .newsletter p {
+      max-width: 37rem;
+      color: rgba(255,250,241,.66);
+      line-height: 1.72;
+    }
+    .newsletter-form {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      min-height: 52px;
+      margin-top: 18px;
+    }
+    .newsletter-form input {
+      min-width: 0;
+      border: 1px solid var(--line-dark);
+      border-radius: 999px;
+      padding: 0 16px;
+      background: rgba(255,250,241,.08);
+      color: var(--paper);
+    }
+    .newsletter-form input::placeholder { color: rgba(255,250,241,.46); }
+    .newsletter-form button {
+      border: 0;
+      border-radius: 999px;
+      padding: 0 18px;
+      background: var(--buriti);
+      color: var(--paper);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
     }
 
     .footer {
-      padding: 38px 18px 46px;
       display: grid;
       gap: 18px;
-      background: var(--coffee);
-      color: var(--white);
+      padding: 40px max(18px, calc((100vw - 1180px) / 2)) 46px;
+      background: var(--deep);
+      color: var(--paper);
     }
-
-    .footer-logo {
-      font-family: var(--serif);
-      font-size: 3.4rem;
-      line-height: .8;
-    }
-
+    .footer .wordmark { font-size: 3.5rem; }
+    .footer .wordmark .lira { color: var(--paper); }
+    .footer .wordmark .brasil { color: var(--straw); }
     .footer p {
-      color: rgba(255, 250, 241, .68);
+      max-width: 42rem;
+      color: rgba(255,250,241,.66);
       line-height: 1.65;
-      max-width: 40rem;
     }
 
-    .bottom-shop-bar {
+    .mobile-cart {
       position: fixed;
       left: 10px;
       right: 10px;
       bottom: 10px;
-      z-index: 20;
+      z-index: 50;
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 10px;
       align-items: center;
       padding: 10px 10px 10px 14px;
-      border: 1px solid rgba(255, 250, 241, .16);
+      border: 1px solid var(--line-dark);
       border-radius: 999px;
-      background: rgba(14, 13, 11, .92);
-      color: var(--white);
-      box-shadow: 0 18px 48px rgba(14, 13, 11, .28);
+      background: rgba(17,16,13,.92);
+      color: var(--paper);
+      box-shadow: 0 20px 54px rgba(17,16,13,.3);
       backdrop-filter: blur(16px);
     }
-
-    .bottom-shop-bar strong {
+    .mobile-cart strong {
       display: block;
       font-size: 11px;
       letter-spacing: .12em;
       text-transform: uppercase;
     }
-
-    .bottom-shop-bar span {
+    .mobile-cart span {
       display: block;
       margin-top: 2px;
-      color: rgba(255, 250, 241, .62);
+      color: rgba(255,250,241,.62);
       font-size: 11px;
     }
-
-    .bottom-shop-bar .btn {
+    .mobile-cart .btn {
       min-height: 42px;
       padding-inline: 16px;
       background: var(--buriti);
-      color: var(--white);
+      color: var(--paper);
       white-space: nowrap;
     }
 
+    .btn:focus-visible,
+    .shopify-tab:focus-visible,
+    .icon-btn:focus-visible,
+    input:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--buriti);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+
     @media (min-width: 760px) {
-      .nav { padding-inline: 34px; }
       body { padding-bottom: 0; }
-      .category-nav { top: 64px; padding-inline: 34px; justify-content: center; }
-      .trust-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); padding-inline: 34px; }
-      .hero {
-        grid-template-columns: 1.05fr .95fr;
-        grid-template-rows: minmax(650px, calc(100svh - 94px));
-      }
-      .hero-media { order: 2; }
-      .hero-copy {
-        margin-top: 0;
-        padding: 48px 34px 56px;
-        align-self: end;
-      }
-      .hero h1 { font-size: clamp(6.2rem, 11vw, 11rem); }
-      .hero-actions { max-width: 420px; }
-      .section { padding: 84px 34px; }
-      .section-head {
-        grid-template-columns: .78fr 1fr;
+      .shopify-tabs { justify-content: center; }
+      .section { padding-block: 92px; }
+      .section__head {
+        grid-template-columns: .86fr 1fr;
         align-items: end;
-        gap: 40px;
+        gap: 44px;
       }
+      .hero {
+        grid-template-columns: 1.03fr .97fr;
+        grid-template-rows: minmax(680px, calc(100svh - 110px));
+      }
+      .hero__media { order: 2; }
+      .hero__content {
+        margin-top: 0;
+        align-self: end;
+        padding-bottom: 56px;
+      }
+      .hero h1 { font-size: clamp(6.3rem, 11vw, 12rem); }
+      .signal-strip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .signal { padding-inline: 34px; }
       .collection-grid {
-        grid-template-columns: 1.15fr .85fr;
-        min-height: 640px;
+        grid-template-columns: 1.16fr .84fr;
+        min-height: 670px;
       }
       .collection-card { min-height: 100%; }
-      .collection-card:nth-child(2) { min-height: 410px; }
-      .product { flex-basis: min(31vw, 330px); }
+      .collection-card:nth-child(2) { min-height: 440px; }
+      .product-card { flex-basis: min(30vw, 336px); }
       .story {
-        grid-template-columns: .9fr 1.1fr;
+        max-width: 1180px;
+        margin-inline: auto;
+        grid-template-columns: .92fr 1.08fr;
         align-items: center;
       }
+      .story-section { padding-block: 96px; }
+      .story__panel { padding: 34px; }
       .feature-product { grid-template-columns: 1fr 1fr; }
-      .feature-product__media { min-height: 620px; }
-      .feature-product__panel { align-content: center; padding: 44px; }
-      .stack-shop { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .stack-card { min-height: 520px; }
-      .review-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .newsletter { grid-template-columns: 1fr 1fr; align-items: center; padding: 64px 34px; }
-      .footer { padding-inline: 34px; grid-template-columns: .8fr 1fr; align-items: end; }
-      .bottom-shop-bar { display: none; }
+      .feature-product__media { min-height: 650px; }
+      .feature-product__panel { align-content: center; padding: 48px; }
+      .look-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .look-card { min-height: 540px; }
+      .review-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .newsletter {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        padding-block: 72px;
+      }
+      .footer {
+        grid-template-columns: .8fr 1fr;
+        align-items: end;
+      }
+      .mobile-cart { display: none; }
     }
   </style>
 </head>
 <body>
   <div class="page">
-    <div class="announcement">Parcele em até 3x sem juros · Envio para todo o Brasil</div>
+    <div class="announcement" data-section-type="announcement-bar" data-shopify-editable="true">Parcele em ate 3x sem juros · Envio para todo o Brasil</div>
 
-    <header class="nav" aria-label="Navegação principal">
-      <a class="brand" href="#top" aria-label="Lira Brasil">
-        <div class="mark" aria-hidden="true">
-          <svg class="logo-mark" viewBox="0 0 120 120" role="img">
-            <circle class="sun-shadow" cx="66" cy="62" r="43"/>
-            <circle class="sun-disc" cx="56" cy="56" r="43"/>
-            <circle class="sun-ring" cx="56" cy="56" r="33"/>
-            <path class="ray-line" d="M56 5v12M56 95v12M5 56h12M95 56h12M20 20l9 9M83 83l9 9M92 20l-9 9M29 83l-9 9"/>
-            <path class="weave-line" d="M28 49c11-8 20-8 28 0s17 8 28 0"/>
-            <path class="weave-line" d="M28 64c11 8 20 8 28 0s17-8 28 0"/>
-            <path class="letter-l" d="M48 31v45c0 8 5 13 14 13h16"/>
-          </svg>
-        </div>
-        <div class="brand-text">
-          <div class="brand-name"><span class="wordmark"><span class="lira">Lira</span><span class="brasil">Brasil</span></span></div>
-          <div class="brand-sub">Alma tropicana</div>
-        </div>
-      </a>
-      <div class="nav-actions">
-        <a class="icon-btn" href="#colecoes" aria-label="Ver coleções">
-          <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    <header class="site-header" data-section-type="header" data-shopify-section-id="header">
+      <div class="site-header__inner">
+        <a class="brand" href="#top" aria-label="Lira Brasil">
+          <span class="mark" aria-hidden="true">
+            <svg class="logo-mark" viewBox="0 0 120 120">
+              <circle class="sun-shadow" cx="66" cy="62" r="43"/>
+              <circle class="sun-disc" cx="56" cy="56" r="43"/>
+              <circle class="sun-ring" cx="56" cy="56" r="33"/>
+              <path class="ray-line" d="M56 5v12M56 95v12M5 56h12M95 56h12M20 20l9 9M83 83l9 9M92 20l-9 9M29 83l-9 9"/>
+              <path class="weave-line" d="M28 49c11-8 20-8 28 0s17 8 28 0"/>
+              <path class="weave-line" d="M28 64c11 8 20 8 28 0s17-8 28 0"/>
+              <path class="letter-l" d="M48 31v45c0 8 5 13 14 13h16"/>
+            </svg>
+          </span>
+          <span>
+            <span class="wordmark"><span class="lira">Lira</span><span class="brasil">Brasil</span></span>
+            <span class="brand-sub">Alma tropicana</span>
+          </span>
         </a>
-        <a class="icon-btn" href="#shop" aria-label="Ver produtos">
-          <svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
-        </a>
+        <nav class="icon-nav" aria-label="Acoes da loja">
+          <a class="icon-btn" href="#collections" aria-label="Ver colecoes"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></a>
+          <a class="icon-btn" href="#featured-products" aria-label="Ver produtos"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg></a>
+        </nav>
       </div>
     </header>
 
-    <nav class="category-nav" aria-label="Categorias da loja">
-      <a class="category-chip is-active" href="#shop">Novidades</a>
-      <a class="category-chip" href="#colecoes">Bolsas</a>
-      <a class="category-chip" href="#colecoes">Chapéus</a>
-      <a class="category-chip" href="#destaque">Destaque</a>
-      <a class="category-chip" href="https://lirabrasil.com" target="_blank" rel="noreferrer">Loja oficial</a>
+    <nav class="shopify-tabs" aria-label="Navegacao de secoes" data-section-type="collection-list-tabs">
+      <a class="shopify-tab is-active" href="#featured-products">Novidades</a>
+      <a class="shopify-tab" href="#collections">Bolsas</a>
+      <a class="shopify-tab" href="#collections">Chapeus</a>
+      <a class="shopify-tab" href="#product-focus">Destaque</a>
+      <a class="shopify-tab" href="https://lirabrasil.com" target="_blank" rel="noreferrer">Loja oficial</a>
     </nav>
 
     <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-media">
-          <img src="https://lirabrasil.com/cdn/shop/collections/IMG_2865_b3a52f8d-cf0a-49a6-b828-c28ecae62656.jpg?v=1770504492&width=1600" alt="Editorial Lira Brasil com peças artesanais em palha natural">
+      <section class="hero section--flush" data-section-type="hero-banner" data-shopify-section-id="hero">
+        <div class="hero__media" data-block-type="image">
+          <img src="https://lirabrasil.com/cdn/shop/collections/IMG_2865_b3a52f8d-cf0a-49a6-b828-c28ecae62656.jpg?v=1770504492&width=1800" alt="Editorial Lira Brasil com pecas artesanais em palha natural" fetchpriority="high" decoding="async">
         </div>
-        <div class="hero-copy">
-          <div class="eyebrow">Nova coleção · feito à mão</div>
-          <h1 id="hero-title">Lira Brasil <em>o sol feito à mão</em></h1>
-          <p class="hero-desc">Bolsas, chapéus e acessórios em palha natural para uma vitrine resort premium, com navegação rápida, compra clara e estética de boutique Shopify.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#shop">Comprar agora</a>
-            <a class="btn btn-ghost" href="#colecoes">Ver coleções</a>
+        <div class="hero__content">
+          <div class="eyebrow" data-block-type="subheading">Nova colecao · feito a mao</div>
+          <h1 class="display" data-block-type="heading">Lira Brasil <em>o sol feito a mao</em></h1>
+          <p class="hero__copy" data-block-type="text">Bolsas, chapeus e acessorios em palha natural para uma vitrine resort premium, com compra clara, narrativa editorial e arquitetura de tema Shopify.</p>
+          <div class="hero__actions" data-block-type="buttons">
+            <a class="btn btn-primary" href="#featured-products">Comprar agora</a>
+            <a class="btn btn-ghost" href="#collections">Ver colecoes</a>
           </div>
-          <a class="hero-proof" href="#shop">
-            <img src="https://lirabrasil.com/cdn/shop/files/IMG_4501.jpg?v=1770511546&width=240" alt="Bolsa Alma">
-            <span>
-              <strong>Mais desejada: Bolsa Alma</strong>
-              <span>Peça assinatura em palha natural com compra rápida e destaque de coleção.</span>
+          <a class="hero__product" href="https://lirabrasil.com/products/bolsa-de-palha-alma" target="_blank" rel="noreferrer" data-block-type="featured-product">
+            <img src="https://lirabrasil.com/cdn/shop/files/IMG_4501.jpg?v=1770511546&width=240" alt="Bolsa Alma" width="56" height="70" decoding="async">
+            <span><strong>Mais desejada: Bolsa Alma</strong><span>Palha natural, franjas e compra rapida.</span></span>
+            <small>R$ 309+</small>
+          </a>
+        </div>
+      </section>
+
+      <section class="signal-strip" aria-label="Beneficios da loja" data-section-type="multicolumn" data-shopify-section-id="trust">
+        <div class="signal" data-block-type="benefit"><strong>3x sem juros</strong><span>Checkout simples e direto</span></div>
+        <div class="signal" data-block-type="benefit"><strong>Feito a mao</strong><span>Pecas com variacao unica</span></div>
+        <div class="signal" data-block-type="benefit"><strong>Envio Brasil</strong><span>Entrega nacional</span></div>
+        <div class="signal" data-block-type="benefit"><strong>Ticket premium</strong><span>Vitrine foco R$ 300+</span></div>
+      </section>
+
+      <section class="section" id="collections" data-section-type="collection-list" data-shopify-section-id="collections">
+        <div class="section__head">
+          <div>
+            <div class="section-kicker">Shop by category</div>
+            <h2 class="section-title">Brasil em forma de <em>materia</em></h2>
+          </div>
+          <p class="section-copy">Categorias empilhadas, imagens amplas e CTAs claros criam uma jornada premium: desejo na primeira dobra, descoberta por colecao e clique imediato para produto.</p>
+        </div>
+        <div class="collection-grid">
+          <a class="collection-card" href="https://lirabrasil.com/collections/bolsas" target="_blank" rel="noreferrer" data-block-type="collection-card">
+            <img src="https://lirabrasil.com/cdn/shop/files/IMG_4469.jpg?v=1757899795&width=1600" alt="Bolsa Alma em palha natural" loading="eager" decoding="async">
+            <span class="collection-card__content">
+              <span class="section-kicker">Produto assinatura</span>
+              <h3>Bolsa Alma</h3>
+              <p>Franja, volume e presenca. O produto ancora a narrativa artesanal e aumenta a percepcao de valor.</p>
+            </span>
+          </a>
+          <a class="collection-card" href="https://lirabrasil.com/collections/chapeus" target="_blank" rel="noreferrer" data-block-type="collection-card">
+            <img src="https://lirabrasil.com/cdn/shop/files/IMG_4646_dbefdd1a-b0cd-4a41-ba03-6f495f0e1bad.jpg?v=1770511009&width=1600" alt="Chapeu Tropicalia Bronze artesanal" loading="eager" decoding="async">
+            <span class="collection-card__content">
+              <span class="section-kicker">Resort statement</span>
+              <h3>Sol de palha</h3>
+              <p>Chapeus dramaticos, solares e sofisticados para uma leitura de boutique resort.</p>
             </span>
           </a>
         </div>
       </section>
 
-      <div class="brand-strip" aria-label="Pilares da marca">
-        <span class="pill">Feito à mão</span>
-        <span class="pill">Alma tropicana</span>
-        <span class="pill">Palha de buriti</span>
-        <span class="pill">Ancestralidade</span>
-        <span class="pill">Design autoral</span>
-      </div>
-
-      <section class="trust-grid" aria-label="Benefícios da loja">
-        <div class="trust-item"><strong>3x sem juros</strong><span>Compra simples e direta</span></div>
-        <div class="trust-item"><strong>Feito à mão</strong><span>Peças com variação única</span></div>
-        <div class="trust-item"><strong>Envio Brasil</strong><span>Entrega nacional</span></div>
-        <div class="trust-item"><strong>Ticket médio</strong><span>Vitrine foco R$ 300+</span></div>
-      </section>
-
-      <section class="section" id="colecoes" aria-labelledby="colecoes-title">
-        <div class="section-head">
-          <div>
-            <div class="section-kicker">Shop by category</div>
-            <h2 class="section-title" id="colecoes-title">Brasil em forma de <em>matéria</em></h2>
-          </div>
-          <p class="section-copy">Categorias empilhadas, imagens grandes e CTAs diretos criam uma home com leitura de tema premium: primeiro desejo, depois coleção, produto, prova social e captura.</p>
-        </div>
-
-        <div class="collection-grid">
-          <a class="collection-card" href="https://lirabrasil.com/collections/bolsas" target="_blank" rel="noreferrer">
-            <img src="https://lirabrasil.com/cdn/shop/files/IMG_4469.jpg?v=1757899795&width=1600" alt="Bolsa Alma em palha natural">
-            <div class="collection-content">
-              <div class="section-kicker">Produto assinatura</div>
-              <h3>Bolsa Alma</h3>
-              <p>Franja, volume e presença. A peça que materializa a narrativa de herança manual com atitude contemporânea.</p>
-            </div>
-          </a>
-
-          <a class="collection-card" href="https://lirabrasil.com/collections/chapeus" target="_blank" rel="noreferrer">
-            <img src="https://lirabrasil.com/cdn/shop/files/IMG_4646_dbefdd1a-b0cd-4a41-ba03-6f495f0e1bad.jpg?v=1770511009&width=1600" alt="Chapéu Tropicália Bronze artesanal">
-            <div class="collection-content">
-              <div class="section-kicker">Resort statement</div>
-              <h3>Sol de palha</h3>
-              <p>Chapéus amplos, dramáticos e solares para reforçar uma Lira mais moda, mais resort, mais memorável.</p>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <section class="section" id="shop" aria-labelledby="shop-title">
-        <div class="section-head">
+      <section class="section" id="featured-products" data-section-type="featured-collection" data-shopify-section-id="featured-products">
+        <div class="section__head">
           <div>
             <div class="section-kicker">Featured collection</div>
-            <h2 class="section-title" id="shop-title">Peças com <em>história</em></h2>
+            <h2 class="section-title">Novidades em <em>movimento</em></h2>
           </div>
-          <p class="section-copy">Carrossel automático de novidades com cards de produto, badge, preço e ação rápida, priorizando mobile como uma home Shopify pronta para vender.</p>
+          <p class="section-copy">Carrossel automatico com cards de produto, badge, preco e acao rapida. Movimento discreto, fisico e util, sem competir com a fotografia.</p>
         </div>
-
-        <div class="shop-row" aria-label="Produtos em destaque">
-          <a class="product" href="https://lirabrasil.com/products/bolsa-de-palha-alma" target="_blank" rel="noreferrer">
-            <div class="product-media"><span class="product-badge">Best seller</span><img src="https://lirabrasil.com/cdn/shop/files/IMG_4501.jpg?v=1770511546&width=900" alt="Bolsa Alma"></div>
-            <div class="product-info">
-              <div class="product-name">Bolsa Alma <span class="price">R$ 309+</span></div>
-              <p>Palha natural, franjas longas e silhueta maximalista.</p>
-              <span class="product-quick">Adicionar à sacola</span>
-            </div>
+        <div class="product-rail" aria-label="Produtos em destaque">
+          <a class="product-card" href="https://lirabrasil.com/products/bolsa-de-palha-alma" target="_blank" rel="noreferrer" data-block-type="product-card">
+            <span class="product-card__media"><span class="badge">Best seller</span><img src="https://lirabrasil.com/cdn/shop/files/IMG_4501.jpg?v=1770511546&width=900" alt="Bolsa Alma" loading="eager" decoding="async"></span>
+            <span class="product-card__body"><span class="product-card__title">Bolsa Alma <span class="price">R$ 309+</span></span><p>Palha natural, franjas longas e silhueta maximalista.</p><span class="quick-add">Adicionar a sacola</span></span>
           </a>
-          <a class="product" href="https://lirabrasil.com/products/bolsa-nautica" target="_blank" rel="noreferrer">
-            <div class="product-media"><span class="product-badge">Novo</span><img src="https://lirabrasil.com/cdn/shop/files/IMG_2670.jpg?v=1770507322&width=900" alt="Bolsa Náutica"></div>
-            <div class="product-info">
-              <div class="product-name">Bolsa Náutica <span class="price">R$ 485</span></div>
-              <p>Textura artesanal com presença de peça statement.</p>
-              <span class="product-quick">Adicionar à sacola</span>
-            </div>
+          <a class="product-card" href="https://lirabrasil.com/products/bolsa-nautica" target="_blank" rel="noreferrer" data-block-type="product-card">
+            <span class="product-card__media"><span class="badge">Novo</span><img src="https://lirabrasil.com/cdn/shop/files/IMG_2670.jpg?v=1770507322&width=900" alt="Bolsa Nautica" loading="eager" decoding="async"></span>
+            <span class="product-card__body"><span class="product-card__title">Bolsa Nautica <span class="price">R$ 485</span></span><p>Trama artesanal com presenca de peca statement.</p><span class="quick-add">Adicionar a sacola</span></span>
           </a>
-          <a class="product" href="https://lirabrasil.com/products/clutch-pacifico" target="_blank" rel="noreferrer">
-            <div class="product-media"><span class="product-badge">Verão</span><img src="https://lirabrasil.com/cdn/shop/files/IMG_1275.jpg?v=1770509400&width=900" alt="Clutch Pacífico"></div>
-            <div class="product-info">
-              <div class="product-name">Clutch Pacífico <span class="price">R$ 149</span></div>
-              <p>Compacta, solar e perfeita para uma vitrine de verão.</p>
-              <span class="product-quick">Adicionar à sacola</span>
-            </div>
+          <a class="product-card" href="https://lirabrasil.com/products/clutch-pacifico" target="_blank" rel="noreferrer" data-block-type="product-card">
+            <span class="product-card__media"><span class="badge">Verao</span><img src="https://lirabrasil.com/cdn/shop/files/IMG_1275.jpg?v=1770509400&width=900" alt="Clutch Pacifico" loading="eager" decoding="async"></span>
+            <span class="product-card__body"><span class="product-card__title">Clutch Pacifico <span class="price">R$ 149</span></span><p>Compacta, solar e perfeita para vitrines de alto giro.</p><span class="quick-add">Adicionar a sacola</span></span>
           </a>
-          <a class="product" href="https://lirabrasil.com/products/colar-maresia" target="_blank" rel="noreferrer">
-            <div class="product-media"><span class="product-badge">Acessório</span><img src="https://lirabrasil.com/cdn/shop/files/IMG_1407.jpg?v=1770506136&width=900" alt="Colar Maresia"></div>
-            <div class="product-info">
-              <div class="product-name">Colar Maresia <span class="price">R$ 129</span></div>
-              <p>Acessório para ampliar a ideia de corpo, mar e matéria.</p>
-              <span class="product-quick">Adicionar à sacola</span>
-            </div>
+          <a class="product-card" href="https://lirabrasil.com/products/colar-maresia" target="_blank" rel="noreferrer" data-block-type="product-card">
+            <span class="product-card__media"><span class="badge">Acessorio</span><img src="https://lirabrasil.com/cdn/shop/files/IMG_1407.jpg?v=1770506136&width=900" alt="Colar Maresia" loading="eager" decoding="async"></span>
+            <span class="product-card__body"><span class="product-card__title">Colar Maresia <span class="price">R$ 129</span></span><p>Adorno para ampliar ticket e completar o look.</p><span class="quick-add">Adicionar a sacola</span></span>
           </a>
         </div>
-        <div class="shop-meta">
-          <span>Arraste para ver produtos</span>
-          <span class="shop-dots" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
-        </div>
+        <div class="rail-meta"><span>Arraste para ver produtos</span><span class="rail-dots" aria-hidden="true"><span></span><span></span><span></span><span></span></span></div>
       </section>
 
-      <section class="section dark" aria-labelledby="historia-title">
+      <section class="story-section" data-section-type="image-with-text" data-shopify-section-id="story">
         <div class="story">
-          <div class="story-media">
-            <img src="https://lirabrasil.com/cdn/shop/files/IMG_1831.jpg?v=1770511546&width=1400" alt="Detalhe artesanal da Bolsa Alma">
+          <div class="story__media" data-block-type="image">
+            <img src="https://lirabrasil.com/cdn/shop/files/IMG_1831.jpg?v=1770511546&width=1400" alt="Detalhe artesanal da Bolsa Alma" loading="eager" decoding="async">
           </div>
-          <div class="story-card">
+          <div class="story__panel" data-block-type="text-panel">
             <div class="section-kicker">Brand story</div>
-            <h2 class="section-title" id="historia-title">A base da marca é <em>ancestral</em></h2>
-            <p>Lira nasce do sobrenome da família e da transmissão manual entre mãe, avó e bisavó. A loja coloca essa história dentro da jornada de compra: matéria natural, edição premium e desejo imediato.</p>
-            <div class="quote">“A alma tropicana, ancestralidade e essência.”</div>
+            <h2 class="section-title">A base da marca e <em>ancestral</em></h2>
+            <p>Lira nasce do sobrenome da familia e da transmissao manual entre mae, avo e bisavo. No tema, essa historia aparece como argumento de compra: materia natural, edicao premium e desejo imediato.</p>
+            <div class="quote">“A alma tropicana, ancestralidade e essencia.”</div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="destaque" aria-labelledby="destaque-title">
-        <div class="section-head">
+      <section class="section" id="product-focus" data-section-type="featured-product" data-shopify-section-id="product-focus">
+        <div class="section__head">
           <div>
             <div class="section-kicker">Product focus</div>
-            <h2 class="section-title" id="destaque-title">O produto que abre a <em>loja</em></h2>
+            <h2 class="section-title">O produto que abre a <em>loja</em></h2>
           </div>
-          <p class="section-copy">Um bloco de produto em destaque no padrão de tema Shopify premium: imagem editorial, variantes, preço, benefício e botão de compra em primeiro plano.</p>
+          <p class="section-copy">Bloco de produto em destaque com leitura de PDP: imagem editorial, variantes, beneficios, preco e CTA em uma composicao respirada.</p>
         </div>
-
-        <div class="feature-product">
+        <article class="feature-product" data-block-type="featured-product-card">
           <div class="feature-product__media">
-            <img src="https://lirabrasil.com/cdn/shop/files/IMG_4469.jpg?v=1757899795&width=1600" alt="Bolsa Alma Lira Brasil em palha natural">
+            <img src="https://lirabrasil.com/cdn/shop/files/IMG_4469.jpg?v=1757899795&width=1600" alt="Bolsa Alma Lira Brasil em palha natural" loading="eager" decoding="async">
           </div>
           <div class="feature-product__panel">
-            <div class="product-rating">★★★★★ 4.9 · Best seller</div>
+            <div class="rating">★★★★★ 4.9 · Best seller</div>
             <h3>Bolsa Alma</h3>
-            <p class="feature-product__copy">Franja longa, palha natural e presença artesanal. Uma peça feita para abrir a loja, gerar desejo e conduzir o clique para compra.</p>
-            <div class="variant-row">
-              <strong>Cor</strong>
-              <div class="variant-options" aria-label="Cores disponíveis">
-                <span>Natural</span>
-                <span>Caramelo</span>
-                <span>Preto</span>
-              </div>
-            </div>
-            <div class="variant-row">
-              <strong>Detalhes</strong>
-              <div class="variant-options" aria-label="Benefícios">
-                <span>Feito à mão</span>
-                <span>Palha de buriti</span>
-                <span>Envio Brasil</span>
-              </div>
-            </div>
-            <div class="feature-price">
-              <strong>Preço</strong>
-              <span>R$ 309+</span>
-            </div>
-            <a class="btn btn-primary" href="https://lirabrasil.com/products/bolsa-de-palha-alma" target="_blank" rel="noreferrer">Adicionar à sacola</a>
+            <p>Franja longa, palha natural e presenca artesanal. Uma peca feita para abrir a loja, gerar desejo e conduzir o clique para compra.</p>
+            <div class="variant-group"><strong>Cor</strong><div class="variant-list"><span>Natural</span><span>Caramelo</span><span>Preto</span></div></div>
+            <div class="variant-group"><strong>Detalhes</strong><div class="variant-list"><span>Feito a mao</span><span>Palha de buriti</span><span>Envio Brasil</span></div></div>
+            <div class="feature-price"><strong>Preco</strong><span>R$ 309+</span></div>
+            <a class="btn btn-dark" href="https://lirabrasil.com/products/bolsa-de-palha-alma" target="_blank" rel="noreferrer">Adicionar a sacola</a>
           </div>
-        </div>
+        </article>
       </section>
 
-      <section class="section" aria-labelledby="lookbook-title">
-        <div class="section-head">
+      <section class="section" data-section-type="lookbook" data-shopify-section-id="shop-the-look">
+        <div class="section__head">
           <div>
             <div class="section-kicker">Shop the look</div>
-            <h2 class="section-title" id="lookbook-title">Editorial que vira <em>compra</em></h2>
+            <h2 class="section-title">Editorial que vira <em>compra</em></h2>
           </div>
-          <p class="section-copy">Blocos visuais empilhados substituem explicações de marca por navegação comercial: cada imagem vende uma linha, um uso e uma próxima ação.</p>
+          <p class="section-copy">Blocos visuais empilhados conduzem o olhar como editorial e funcionam como atalhos comerciais para colecoes.</p>
         </div>
-        <div class="stack-shop">
-          <a class="stack-card" href="https://lirabrasil.com/collections/bolsas" target="_blank" rel="noreferrer">
-            <img src="https://lirabrasil.com/cdn/shop/collections/IMG_0452.jpg?v=1759438982&width=1200" alt="Bolsas artesanais Lira Brasil">
-            <div class="stack-card__content">
-              <div class="section-kicker">Bolsas</div>
-              <h3>Doce Maré</h3>
-              <p>Texturas naturais e silhuetas de impacto para o produto de maior faturamento.</p>
-            </div>
+        <div class="look-grid">
+          <a class="look-card" href="https://lirabrasil.com/collections/bolsas" target="_blank" rel="noreferrer" data-block-type="look-card">
+            <img src="https://lirabrasil.com/cdn/shop/collections/IMG_0452.jpg?v=1759438982&width=1800" alt="Bolsas artesanais Lira Brasil" loading="eager" decoding="async">
+            <span class="look-card__content"><span class="section-kicker">Bolsas</span><h3>Doce Mare</h3><p>Texturas naturais e silhuetas de impacto para o produto de maior faturamento.</p></span>
           </a>
-          <a class="stack-card" href="https://lirabrasil.com/collections/chapeus" target="_blank" rel="noreferrer">
-            <img src="https://lirabrasil.com/cdn/shop/files/IMG_4646_dbefdd1a-b0cd-4a41-ba03-6f495f0e1bad.jpg?v=1770511009&width=1200" alt="Chapéus artesanais Lira Brasil">
-            <div class="stack-card__content">
-              <div class="section-kicker">Chapéus</div>
-              <h3>Tropicália</h3>
-              <p>Produto statement para uma leitura resort, solar e sofisticada.</p>
-            </div>
+          <a class="look-card" href="https://lirabrasil.com/collections/chapeus" target="_blank" rel="noreferrer" data-block-type="look-card">
+            <img src="https://lirabrasil.com/cdn/shop/files/IMG_4646_dbefdd1a-b0cd-4a41-ba03-6f495f0e1bad.jpg?v=1770511009&width=1600" alt="Chapeus artesanais Lira Brasil" loading="eager" decoding="async">
+            <span class="look-card__content"><span class="section-kicker">Chapeus</span><h3>Tropicalia</h3><p>Produto statement para uma leitura resort, solar e sofisticada.</p></span>
           </a>
-          <a class="stack-card" href="https://lirabrasil.com/collections/acessorios" target="_blank" rel="noreferrer">
-            <img src="https://lirabrasil.com/cdn/shop/files/IMG_1407.jpg?v=1770506136&width=1200" alt="Acessórios artesanais Lira Brasil">
-            <div class="stack-card__content">
-              <div class="section-kicker">Acessórios</div>
-              <h3>Maresia</h3>
-              <p>Colares e adornos para ampliar ticket e completar o look.</p>
-            </div>
+          <a class="look-card" href="https://lirabrasil.com/collections/acessorios" target="_blank" rel="noreferrer" data-block-type="look-card">
+            <img src="https://lirabrasil.com/cdn/shop/files/IMG_1407.jpg?v=1770506136&width=900" alt="Acessorios artesanais Lira Brasil" loading="eager" decoding="async">
+            <span class="look-card__content"><span class="section-kicker">Acessorios</span><h3>Maresia</h3><p>Colares e adornos para ampliar ticket e completar o look.</p></span>
           </a>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="reviews-title">
-        <div class="section-head">
+      <section class="section" data-section-type="testimonials" data-shopify-section-id="reviews">
+        <div class="section__head">
           <div>
             <div class="section-kicker">Social proof</div>
-            <h2 class="section-title" id="reviews-title">Confiança antes do <em>checkout</em></h2>
+            <h2 class="section-title">Confianca antes do <em>checkout</em></h2>
           </div>
-          <p class="section-copy">Reviews curtos e premium criam segurança no mobile sem quebrar a estética editorial da loja.</p>
+          <p class="section-copy">Reviews curtos e premium criam seguranca no mobile sem quebrar a estetica editorial da loja.</p>
         </div>
-        <div class="review-strip">
-          <div class="review-card">
-            <strong>★★★★★ Cliente Lira</strong>
-            <p>“A peça chega com presença de resort e acabamento artesanal impecável.”</p>
-          </div>
-          <div class="review-card">
-            <strong>★★★★★ Compra verificada</strong>
-            <p>“A bolsa é leve, marcante e combina com praia e cidade.”</p>
-          </div>
-          <div class="review-card">
-            <strong>★★★★★ Curadoria</strong>
-            <p>“Textura natural, fotografia grande e compra fácil. Parece boutique.”</p>
-          </div>
+        <div class="review-grid">
+          <div class="review-card" data-block-type="testimonial"><strong>★★★★★ Cliente Lira</strong><p>“A peca chega com presenca de resort e acabamento artesanal impecavel.”</p></div>
+          <div class="review-card" data-block-type="testimonial"><strong>★★★★★ Compra verificada</strong><p>“A bolsa e leve, marcante e combina com praia e cidade.”</p></div>
+          <div class="review-card" data-block-type="testimonial"><strong>★★★★★ Curadoria</strong><p>“Textura natural, fotografia grande e compra facil. Parece boutique.”</p></div>
         </div>
       </section>
 
-      <section class="newsletter" aria-label="Cadastro para novidades">
+      <section class="newsletter" data-section-type="newsletter" data-shopify-section-id="newsletter">
         <div>
-          <div class="section-kicker">Lançamentos</div>
-          <h2>Receba a próxima coleção.</h2>
+          <div class="section-kicker">Lancamentos</div>
+          <h2>Receba a proxima colecao.</h2>
         </div>
         <div>
-          <p>Cadastre-se para receber novidades, reposições de bolsas e peças artesanais em primeira mão.</p>
-          <form class="newsletter-form">
+          <p>Cadastre-se para receber novidades, reposicoes de bolsas e pecas artesanais em primeira mao.</p>
+          <form class="newsletter-form" aria-label="Cadastro de email">
             <input type="email" placeholder="seu@email.com" aria-label="Email">
             <button type="submit">Entrar</button>
           </form>
         </div>
       </section>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
 
-    <footer class="footer">
-      <div class="footer-logo"><span class="wordmark"><span class="lira" style="color:var(--white)">Lira</span><span class="brasil" style="color:var(--straw)">Brasil</span></span></div>
-      <p>Home mobile-first para Shopify premium: coleção, produto em destaque, carrossel automático, prova social, cadastro e compra rápida em uma experiência mais comercial e sofisticada.</p>
+    <footer class="footer" data-section-type="footer" data-shopify-section-id="footer">
+      <div><span class="wordmark"><span class="lira">Lira</span><span class="brasil">Brasil</span></span></div>
+      <p>Tema Shopify mobile-first com composicao editorial, grid moderno, componentes editaveis por secao e foco em percepcao de valor, performance e conversao.</p>
     </footer>
 
-    <aside class="bottom-shop-bar" aria-label="Ação rápida de compra">
+    <aside class="mobile-cart" aria-label="Acao rapida de compra" data-section-type="sticky-atc">
       <div><strong>Bolsa Alma</strong><span>A partir de R$ 309</span></div>
       <a class="btn" href="https://lirabrasil.com/products/bolsa-de-palha-alma" target="_blank" rel="noreferrer">Comprar</a>
     </aside>
   </div>
+
+  <script type="application/json" id="shopify-section-map">
+    {
+      "sections": ["announcement-bar", "header", "hero-banner", "multicolumn", "collection-list", "featured-collection", "image-with-text", "featured-product", "lookbook", "testimonials", "newsletter", "footer"],
+      "editorial_principles": ["visual hierarchy", "premium spacing", "optical alignment", "negative space", "typography rhythm", "luxury contrast", "motion hierarchy"]
+    }
+  </script>
   <script>
-    const productRow = document.querySelector(".shop-row");
-    const newsletterForm = document.querySelector(".newsletter-form");
+    const rail = document.querySelector(".product-rail");
+    const form = document.querySelector(".newsletter-form");
 
-    if (productRow) {
-      let autoScroll = window.setInterval(() => {
-        const next = productRow.scrollLeft + Math.min(310, productRow.clientWidth * 0.78);
-        const end = productRow.scrollWidth - productRow.clientWidth - 4;
-        productRow.scrollTo({ left: next >= end ? 0 : next, behavior: "smooth" });
-      }, 2600);
+    if (rail && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      let timer = window.setInterval(() => {
+        const step = Math.min(326, rail.clientWidth * 0.78);
+        const end = rail.scrollWidth - rail.clientWidth - 4;
+        const next = rail.scrollLeft + step;
+        rail.scrollTo({ left: next >= end ? 0 : next, behavior: "smooth" });
+      }, 2800);
 
-      productRow.addEventListener("pointerdown", () => window.clearInterval(autoScroll), { once: true });
+      rail.addEventListener("pointerdown", () => window.clearInterval(timer), { once: true });
+      rail.addEventListener("focusin", () => window.clearInterval(timer), { once: true });
     }
 
-    if (newsletterForm) {
-      newsletterForm.addEventListener("submit", (event) => event.preventDefault());
+    if (form) {
+      form.addEventListener("submit", (event) => event.preventDefault());
     }
   </script>
 </body>
