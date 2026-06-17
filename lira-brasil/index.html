@@ -289,12 +289,25 @@
     }
     .hero__media { position: relative; overflow: hidden; }
     .hero__media img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: center center;
       filter: saturate(.9) contrast(1.05);
       transform: scale(1.01);
+      opacity: 0;
+      animation: heroFade 15s infinite;
+    }
+    .hero__media img:nth-child(1) { opacity: 1; animation-delay: 0s; }
+    .hero__media img:nth-child(2) { animation-delay: 5s; }
+    .hero__media img:nth-child(3) { animation-delay: 10s; }
+
+    @keyframes heroFade {
+      0%, 28% { opacity: 1; transform: scale(1.01); }
+      34%, 94% { opacity: 0; transform: scale(1.025); }
+      100% { opacity: 1; transform: scale(1.01); }
     }
     .hero__media::after {
       content: "";
@@ -469,6 +482,8 @@
     .product-card {
       flex: 0 0 min(77vw, 312px);
       scroll-snap-align: center;
+      display: grid;
+      grid-template-rows: auto 1fr;
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -476,15 +491,19 @@
       box-shadow: 0 14px 36px rgba(36,23,17,.09);
     }
     .product-card__media {
+      display: block;
       position: relative;
-      aspect-ratio: 4 / 4.8;
+      aspect-ratio: 4 / 4.35;
       overflow: hidden;
-      background: #e8dac5;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(217,189,135,.18), transparent 34%),
+        #fbfaf6;
     }
     .product-card__media img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      padding: 22px;
       transition: transform .55s ease;
     }
     .product-card:hover img { transform: scale(1.04); }
@@ -505,7 +524,10 @@
     .product-card__body {
       display: grid;
       gap: 10px;
-      padding: 15px;
+      align-content: start;
+      padding: 16px;
+      border-top: 1px solid rgba(36,23,17,.08);
+      background: rgba(255,250,241,.92);
     }
     .product-card__title {
       display: flex;
@@ -625,7 +647,8 @@
       inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      padding: 34px;
     }
     .feature-product__panel {
       display: grid;
@@ -840,6 +863,8 @@
         transition-duration: .01ms !important;
         animation-duration: .01ms !important;
       }
+      .hero__media img { opacity: 0; animation: none; }
+      .hero__media img:first-child { opacity: 1; }
     }
 
     @media (min-width: 760px) {
@@ -972,7 +997,7 @@
       }
       .product-rail {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 16px;
         overflow: visible;
         margin-inline: 0;
@@ -1104,7 +1129,9 @@
     <main id="top">
       <section class="hero section--flush" data-section-type="hero-banner" data-shopify-section-id="hero">
         <div class="hero__media" data-block-type="image">
-          <img src="https://lirabrasil.com/cdn/shop/collections/IMG_2865_b3a52f8d-cf0a-49a6-b828-c28ecae62656.jpg?v=1770504492&width=1800" alt="Editorial Lira Brasil com pecas artesanais em palha natural" fetchpriority="high" decoding="async">
+          <img src="assets/banners/banner-hero-01.jpg" alt="Campanha Lira Brasil com modelos usando bolsas e acessorios artesanais" fetchpriority="high" decoding="async">
+          <img src="assets/banners/banner-hero-02.jpg" alt="Editorial Lira Brasil com acessorios artesanais em tons terrosos" loading="eager" decoding="async">
+          <img src="assets/banners/banner-hero-03.jpg" alt="Look resort Lira Brasil com bolsa de palha e acessorios naturais" loading="eager" decoding="async">
         </div>
         <div class="hero__content">
           <div class="eyebrow" data-block-type="subheading">Nova colecao · feito a mao</div>
@@ -1161,26 +1188,34 @@
         <div class="section__head">
           <div>
             <div class="section-kicker">Featured collection</div>
-            <h2 class="section-title">Novidades em <em>movimento</em></h2>
+            <h2 class="section-title">Produtos da <em>colecao</em></h2>
           </div>
-          <p class="section-copy">Carrossel automatico com cards de produto, badge, preco e acao rapida. Movimento discreto, fisico e util, sem competir com a fotografia.</p>
+          <p class="section-copy">Produtos organizados como vitrine Shopify premium: imagem limpa, nome claro, preco direto e compra rapida sem competir com a fotografia.</p>
         </div>
         <div class="product-rail" aria-label="Produtos em destaque">
           <a class="product-card" href="https://lirabrasil.com/products/bolsa-de-palha-alma" target="_blank" rel="noreferrer" data-block-type="product-card">
-            <span class="product-card__media"><span class="badge">Best seller</span><img src="https://lirabrasil.com/cdn/shop/files/IMG_4501.jpg?v=1770511546&width=900" alt="Bolsa Alma" loading="eager" decoding="async"></span>
-            <span class="product-card__body"><span class="product-card__title">Bolsa Alma <span class="price">R$ 309+</span></span><p>Palha natural, franjas longas e silhueta maximalista.</p><span class="quick-add">Adicionar a sacola</span></span>
+            <span class="product-card__media"><span class="badge">Best seller</span><img src="assets/products/bolsa-lira-02.jpg" alt="Bolsa Alma em palha com franjas" loading="eager" decoding="async"></span>
+            <span class="product-card__body"><span class="product-card__title">Bolsa Alma <span class="price">R$ 489</span></span><p>Palha natural, franjas e alca em couro para uma silhueta resort.</p><span class="quick-add">Adicionar a sacola</span></span>
           </a>
-          <a class="product-card" href="https://lirabrasil.com/products/bolsa-nautica" target="_blank" rel="noreferrer" data-block-type="product-card">
-            <span class="product-card__media"><span class="badge">Novo</span><img src="https://lirabrasil.com/cdn/shop/files/IMG_2670.jpg?v=1770507322&width=900" alt="Bolsa Nautica" loading="eager" decoding="async"></span>
-            <span class="product-card__body"><span class="product-card__title">Bolsa Nautica <span class="price">R$ 485</span></span><p>Trama artesanal com presenca de peca statement.</p><span class="quick-add">Adicionar a sacola</span></span>
+          <a class="product-card" href="https://lirabrasil.com/collections/acessorios" target="_blank" rel="noreferrer" data-block-type="product-card">
+            <span class="product-card__media"><span class="badge">Novo</span><img src="assets/products/colar-c1-01.jpg" alt="Colar Solaris artesanal" loading="eager" decoding="async"></span>
+            <span class="product-card__body"><span class="product-card__title">Colar Solaris <span class="price">R$ 179</span></span><p>Adorno leve com acabamento organico para compor looks de verao.</p><span class="quick-add">Adicionar a sacola</span></span>
           </a>
-          <a class="product-card" href="https://lirabrasil.com/products/clutch-pacifico" target="_blank" rel="noreferrer" data-block-type="product-card">
-            <span class="product-card__media"><span class="badge">Verao</span><img src="https://lirabrasil.com/cdn/shop/files/IMG_1275.jpg?v=1770509400&width=900" alt="Clutch Pacifico" loading="eager" decoding="async"></span>
-            <span class="product-card__body"><span class="product-card__title">Clutch Pacifico <span class="price">R$ 149</span></span><p>Compacta, solar e perfeita para vitrines de alto giro.</p><span class="quick-add">Adicionar a sacola</span></span>
+          <a class="product-card" href="https://lirabrasil.com/collections/acessorios" target="_blank" rel="noreferrer" data-block-type="product-card">
+            <span class="product-card__media"><span class="badge">Verao</span><img src="assets/products/colar-c3-01.jpg" alt="Colar Onda artesanal" loading="eager" decoding="async"></span>
+            <span class="product-card__body"><span class="product-card__title">Colar Onda <span class="price">R$ 169</span></span><p>Peca de impacto sutil para elevar o ticket com styling completo.</p><span class="quick-add">Adicionar a sacola</span></span>
           </a>
-          <a class="product-card" href="https://lirabrasil.com/products/colar-maresia" target="_blank" rel="noreferrer" data-block-type="product-card">
-            <span class="product-card__media"><span class="badge">Acessorio</span><img src="https://lirabrasil.com/cdn/shop/files/IMG_1407.jpg?v=1770506136&width=900" alt="Colar Maresia" loading="eager" decoding="async"></span>
-            <span class="product-card__body"><span class="product-card__title">Colar Maresia <span class="price">R$ 129</span></span><p>Adorno para ampliar ticket e completar o look.</p><span class="quick-add">Adicionar a sacola</span></span>
+          <a class="product-card" href="https://lirabrasil.com/collections/acessorios" target="_blank" rel="noreferrer" data-block-type="product-card">
+            <span class="product-card__media"><span class="badge">Acessorio</span><img src="assets/products/colar-c4-01.jpg" alt="Colar Raiz artesanal" loading="eager" decoding="async"></span>
+            <span class="product-card__body"><span class="product-card__title">Colar Raiz <span class="price">R$ 189</span></span><p>Volume delicado, textura natural e brilho discreto para resortwear.</p><span class="quick-add">Adicionar a sacola</span></span>
+          </a>
+          <a class="product-card" href="https://lirabrasil.com/collections/acessorios" target="_blank" rel="noreferrer" data-block-type="product-card">
+            <span class="product-card__media"><span class="badge">Kit</span><img src="assets/products/kit-01.jpg" alt="Kit Trama artesanal" loading="eager" decoding="async"></span>
+            <span class="product-card__body"><span class="product-card__title">Kit Trama <span class="price">R$ 249</span></span><p>Conjunto de acessorios para criar venda combinada e presenteavel.</p><span class="quick-add">Adicionar a sacola</span></span>
+          </a>
+          <a class="product-card" href="https://lirabrasil.com/collections/roupas" target="_blank" rel="noreferrer" data-block-type="product-card">
+            <span class="product-card__media"><span class="badge">Resort</span><img src="assets/products/saia-lira-01.png" alt="Saia Lira em tecido natural" loading="eager" decoding="async"></span>
+            <span class="product-card__body"><span class="product-card__title">Saia Lira <span class="price">R$ 329</span></span><p>Base leve para look completo com bolsa de palha e acessorios.</p><span class="quick-add">Adicionar a sacola</span></span>
           </a>
         </div>
         <div class="rail-meta"><span>Arraste para ver produtos</span><span class="rail-dots" aria-hidden="true"><span></span><span></span><span></span><span></span></span></div>
@@ -1210,7 +1245,7 @@
         </div>
         <article class="feature-product" data-block-type="featured-product-card">
           <div class="feature-product__media">
-            <img src="https://lirabrasil.com/cdn/shop/files/IMG_4469.jpg?v=1757899795&width=1600" alt="Bolsa Alma Lira Brasil em palha natural" loading="eager" decoding="async">
+            <img src="assets/products/bolsa-lira-02.jpg" alt="Bolsa Alma Lira Brasil em palha natural" loading="eager" decoding="async">
           </div>
           <div class="feature-product__panel">
             <div class="rating">★★★★★ 4.9 · Best seller</div>
@@ -1218,7 +1253,7 @@
             <p>Franja longa, palha natural e presenca artesanal. Uma peca feita para abrir a loja, gerar desejo e conduzir o clique para compra.</p>
             <div class="variant-group"><strong>Cor</strong><div class="variant-list"><span>Natural</span><span>Caramelo</span><span>Preto</span></div></div>
             <div class="variant-group"><strong>Detalhes</strong><div class="variant-list"><span>Feito a mao</span><span>Palha de buriti</span><span>Envio Brasil</span></div></div>
-            <div class="feature-price"><strong>Preco</strong><span>R$ 309+</span></div>
+            <div class="feature-price"><strong>Preco</strong><span>R$ 489</span></div>
             <a class="btn btn-dark" href="https://lirabrasil.com/products/bolsa-de-palha-alma" target="_blank" rel="noreferrer">Adicionar a sacola</a>
           </div>
         </article>
