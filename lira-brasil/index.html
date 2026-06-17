@@ -598,6 +598,14 @@
       white-space: nowrap;
       pointer-events: none;
     }
+    .editorial-billboard--new {
+      font-size: clamp(3.3rem, 5.8vw, 6.4rem);
+      line-height: .86;
+      margin-bottom: 18px;
+    }
+    .editorial-billboard--new + .ticker-ribbon {
+      margin-top: 0;
+    }
 
     .ticker-ribbon {
       display: none;
@@ -1356,7 +1364,7 @@
           </div>
           <p class="section-copy">Produtos organizados como vitrine Shopify premium: imagem limpa, nome claro, preco direto e compra rapida sem competir com a fotografia.</p>
         </div>
-        <div class="editorial-billboard desktop-only" aria-hidden="true">NEW</div>
+        <div class="editorial-billboard editorial-billboard--new desktop-only" aria-hidden="true">NEW</div>
         <div class="ticker-ribbon desktop-only" aria-hidden="true">
           <span>natural textures</span><span>lightweight feel</span><span>pure form</span><span>comfort in motion</span><span>fluid styling</span><span>natural textures</span><span>lightweight feel</span>
         </div>
