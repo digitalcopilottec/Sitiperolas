@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lira Brasil | Tema Shopify Premium</title>
-  <meta name="description" content="Tema Shopify premium para Lira Brasil: bolsas, chapeus e acessorios artesanais com experiencia mobile-first, editorial e pronta para conversao.">
+  <meta name="description" content="Tema Shopify premium para Lira Brasil: bolsas, resortwear e acessorios artesanais com experiencia mobile-first, editorial e pronta para conversao.">
   <meta property="og:title" content="Lira Brasil | Alma tropicana, feito a mao">
   <meta property="og:description" content="Uma home Shopify premium, mobile-first e editorial para produtos artesanais brasileiros.">
   <style>
@@ -444,8 +444,10 @@
       position: absolute;
       inset: 0;
       z-index: 1;
-      background: linear-gradient(180deg, rgba(17,16,13,.04), rgba(17,16,13,.24) 44%, rgba(17,16,13,.86));
+      background: linear-gradient(180deg, rgba(17,16,13,.02), rgba(17,16,13,.14) 44%, rgba(17,16,13,.74));
     }
+    .collection-card:nth-child(2) img,
+    .look-card:nth-child(2) img { object-position: center 34%; }
     .collection-card__content, .look-card__content {
       position: absolute;
       left: 18px;
@@ -996,21 +998,19 @@
         font-size: 12px;
       }
       .product-rail {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 16px;
-        overflow: visible;
+        overflow-x: auto;
         margin-inline: 0;
-        padding: 0;
+        padding: 2px 0 18px;
       }
       .product-card {
+        flex-basis: calc((100% - 32px) / 3);
         min-width: 0;
-        flex: initial;
         box-shadow: 0 12px 28px rgba(36,23,17,.075);
       }
       .product-card__body { padding: 16px; }
       .product-card__title { font-size: 1.18rem; }
-      .rail-meta { display: none; }
+      .rail-meta { padding-top: 2px; }
       .story {
         max-width: 1180px;
         margin-inline: auto;
@@ -1121,7 +1121,7 @@
     <nav class="shopify-tabs" aria-label="Navegacao de secoes" data-section-type="collection-list-tabs">
       <a class="shopify-tab is-active" href="#featured-products">Novidades</a>
       <a class="shopify-tab" href="#collections">Bolsas</a>
-      <a class="shopify-tab" href="#collections">Chapeus</a>
+      <a class="shopify-tab" href="#collections">Acessorios</a>
       <a class="shopify-tab" href="#product-focus">Destaque</a>
       <a class="shopify-tab" href="https://lirabrasil.com" target="_blank" rel="noreferrer">Loja oficial</a>
     </nav>
@@ -1136,15 +1136,15 @@
         <div class="hero__content">
           <div class="eyebrow" data-block-type="subheading">Nova colecao · feito a mao</div>
           <h1 class="display" data-block-type="heading">Lira Brasil <em>o sol feito a mao</em></h1>
-          <p class="hero__copy" data-block-type="text">Bolsas, chapeus e acessorios em palha natural para uma vitrine resort premium, com compra clara, narrativa editorial e arquitetura de tema Shopify.</p>
+          <p class="hero__copy" data-block-type="text">Bolsas, resortwear e acessorios em palha natural para uma vitrine premium, com compra clara, narrativa editorial e arquitetura de tema Shopify.</p>
           <div class="hero__actions" data-block-type="buttons">
             <a class="btn btn-primary" href="#featured-products">Comprar agora</a>
             <a class="btn btn-ghost" href="#collections">Ver colecoes</a>
           </div>
           <a class="hero__product" href="https://lirabrasil.com/products/bolsa-de-palha-alma" target="_blank" rel="noreferrer" data-block-type="featured-product">
-            <img src="https://lirabrasil.com/cdn/shop/files/IMG_4501.jpg?v=1770511546&width=240" alt="Bolsa Alma" width="56" height="70" decoding="async">
+            <img src="assets/products/bolsa-lira-02.jpg" alt="Bolsa Alma" width="56" height="70" decoding="async">
             <span><strong>Mais desejada: Bolsa Alma</strong><span>Palha natural, franjas e compra rapida.</span></span>
-            <small>R$ 309+</small>
+            <small>R$ 489</small>
           </a>
         </div>
       </section>
@@ -1166,19 +1166,19 @@
         </div>
         <div class="collection-grid">
           <a class="collection-card" href="https://lirabrasil.com/collections/bolsas" target="_blank" rel="noreferrer" data-block-type="collection-card">
-            <img src="https://lirabrasil.com/cdn/shop/files/IMG_4469.jpg?v=1757899795&width=1600" alt="Bolsa Alma em palha natural" loading="eager" decoding="async">
+            <img src="assets/banners/banner-hero-01.jpg" alt="Campanha Lira Brasil com Bolsa Alma em palha natural" loading="eager" decoding="async">
             <span class="collection-card__content">
               <span class="section-kicker">Produto assinatura</span>
               <h3>Bolsa Alma</h3>
               <p>Franja, volume e presenca. O produto ancora a narrativa artesanal e aumenta a percepcao de valor.</p>
             </span>
           </a>
-          <a class="collection-card" href="https://lirabrasil.com/collections/chapeus" target="_blank" rel="noreferrer" data-block-type="collection-card">
-            <img src="https://lirabrasil.com/cdn/shop/files/IMG_4646_dbefdd1a-b0cd-4a41-ba03-6f495f0e1bad.jpg?v=1770511009&width=1600" alt="Chapeu Tropicalia Bronze artesanal" loading="eager" decoding="async">
+          <a class="collection-card" href="https://lirabrasil.com/collections/acessorios" target="_blank" rel="noreferrer" data-block-type="collection-card">
+            <img src="assets/banners/banner-hero-02.jpg" alt="Editorial Lira Brasil com acessorios artesanais" loading="eager" decoding="async">
             <span class="collection-card__content">
-              <span class="section-kicker">Resort statement</span>
-              <h3>Sol de palha</h3>
-              <p>Chapeus dramaticos, solares e sofisticados para uma leitura de boutique resort.</p>
+              <span class="section-kicker">Styling premium</span>
+              <h3>Acessorios solares</h3>
+              <p>Colares, kits e detalhes naturais para compor looks completos com leitura de boutique resort.</p>
             </span>
           </a>
         </div>
@@ -1224,7 +1224,7 @@
       <section class="story-section" data-section-type="image-with-text" data-shopify-section-id="story">
         <div class="story">
           <div class="story__media" data-block-type="image">
-            <img src="https://lirabrasil.com/cdn/shop/files/IMG_1831.jpg?v=1770511546&width=1400" alt="Detalhe artesanal da Bolsa Alma" loading="eager" decoding="async">
+            <img src="assets/banners/banner-hero-03.jpg" alt="Manifesto Lira Brasil com styling resort artesanal" loading="eager" decoding="async">
           </div>
           <div class="story__panel" data-block-type="text-panel">
             <div class="section-kicker">Brand story</div>
@@ -1269,16 +1269,16 @@
         </div>
         <div class="look-grid">
           <a class="look-card" href="https://lirabrasil.com/collections/bolsas" target="_blank" rel="noreferrer" data-block-type="look-card">
-            <img src="https://lirabrasil.com/cdn/shop/files/IMG_2670.jpg?v=1770507322&width=900" alt="Bolsas artesanais Lira Brasil" loading="eager" decoding="async">
-            <span class="look-card__content"><span class="section-kicker">Bolsas</span><h3>Doce Mare</h3><p>Texturas naturais e silhuetas de impacto para o produto de maior faturamento.</p></span>
-          </a>
-          <a class="look-card" href="https://lirabrasil.com/collections/chapeus" target="_blank" rel="noreferrer" data-block-type="look-card">
-            <img src="https://lirabrasil.com/cdn/shop/files/IMG_4646_dbefdd1a-b0cd-4a41-ba03-6f495f0e1bad.jpg?v=1770511009&width=1600" alt="Chapeus artesanais Lira Brasil" loading="eager" decoding="async">
-            <span class="look-card__content"><span class="section-kicker">Chapeus</span><h3>Tropicalia</h3><p>Produto statement para uma leitura resort, solar e sofisticada.</p></span>
+            <img src="assets/banners/banner-hero-01.jpg" alt="Look Lira Brasil com Bolsa Alma artesanal" loading="eager" decoding="async">
+            <span class="look-card__content"><span class="section-kicker">Bolsas</span><h3>Bolsa Alma</h3><p>Texturas naturais e silhueta de impacto para o produto de maior faturamento.</p></span>
           </a>
           <a class="look-card" href="https://lirabrasil.com/collections/acessorios" target="_blank" rel="noreferrer" data-block-type="look-card">
-            <img src="https://lirabrasil.com/cdn/shop/files/IMG_1407.jpg?v=1770506136&width=900" alt="Acessorios artesanais Lira Brasil" loading="eager" decoding="async">
-            <span class="look-card__content"><span class="section-kicker">Acessorios</span><h3>Maresia</h3><p>Colares e adornos para ampliar ticket e completar o look.</p></span>
+            <img src="assets/banners/banner-hero-02.jpg" alt="Acessorios artesanais Lira Brasil em composicao editorial" loading="eager" decoding="async">
+            <span class="look-card__content"><span class="section-kicker">Acessorios</span><h3>Solaris</h3><p>Detalhes naturais para ampliar ticket e completar a narrativa de styling.</p></span>
+          </a>
+          <a class="look-card" href="https://lirabrasil.com/collections/roupas" target="_blank" rel="noreferrer" data-block-type="look-card">
+            <img src="assets/banners/banner-hero-03.jpg" alt="Resortwear Lira Brasil com bolsa de palha e styling natural" loading="eager" decoding="async">
+            <span class="look-card__content"><span class="section-kicker">Resortwear</span><h3>Maresia</h3><p>Base leve, palha e acessorios para transformar editorial em compra.</p></span>
           </a>
         </div>
       </section>
@@ -1319,7 +1319,7 @@
     </footer>
 
     <aside class="mobile-cart" aria-label="Acao rapida de compra" data-section-type="sticky-atc">
-      <div><strong>Bolsa Alma</strong><span>A partir de R$ 309</span></div>
+      <div><strong>Bolsa Alma</strong><span>R$ 489</span></div>
       <a class="btn" href="https://lirabrasil.com/products/bolsa-de-palha-alma" target="_blank" rel="noreferrer">Comprar</a>
     </aside>
   </div>
