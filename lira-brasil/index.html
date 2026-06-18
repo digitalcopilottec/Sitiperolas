@@ -80,10 +80,10 @@
       min-height: 66px;
       width: var(--container);
       margin-inline: auto;
-      display: flex;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
       align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+      gap: 14px;
     }
 
     .brand {
@@ -171,16 +171,14 @@
     .icon-btn svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 1.8; }
 
     .shopify-tabs {
-      position: sticky;
-      top: 66px;
-      z-index: 24;
+      min-width: 0;
       display: flex;
       gap: 8px;
       overflow-x: auto;
-      padding: 10px max(18px, calc((100vw - 1180px) / 2));
-      border-bottom: 1px solid var(--line);
-      background: rgba(251,247,238,.88);
-      backdrop-filter: blur(18px);
+      padding: 0;
+      border: 0;
+      background: transparent;
+      backdrop-filter: none;
       scrollbar-width: none;
     }
     .shopify-tabs::-webkit-scrollbar { display: none; }
@@ -424,12 +422,31 @@
       line-height: 1.35;
     }
 
-    .collection-grid {
-      display: grid;
-      gap: 12px;
+    .collection-carousel,
+    .look-carousel {
+      overflow: hidden;
+      margin-inline: calc((100vw - min(100vw - 36px, 1180px)) / -2);
+      padding-inline: max(18px, calc((100vw - 1180px) / 2));
+    }
+    .collection-track,
+    .look-track {
+      --rail-gap: 12px;
+      width: max-content;
+      display: flex;
+      gap: var(--rail-gap);
+      animation: infiniteRail 34s linear infinite;
+      will-change: transform;
+    }
+    .look-track { animation-duration: 38s; }
+    .collection-carousel:hover .collection-track,
+    .look-carousel:hover .look-track { animation-play-state: paused; }
+    @keyframes infiniteRail {
+      from { transform: translateX(0); }
+      to { transform: translateX(calc(-50% - (var(--rail-gap) / 2))); }
     }
     .collection-card, .look-card {
       position: relative;
+      flex: 0 0 min(78vw, 520px);
       min-height: 420px;
       overflow: hidden;
       border-radius: 8px;
@@ -812,10 +829,7 @@
       font-size: 2.1rem;
     }
 
-    .look-grid {
-      display: grid;
-      gap: 12px;
-    }
+    .look-grid { display: block; }
     .look-card:nth-child(1) { background: var(--brown) url("assets/banners/banner-hero-01.jpg") center center / cover no-repeat; }
     .look-card:nth-child(2) { background: var(--brown) url("assets/banners/banner-hero-02.jpg") center 34% / cover no-repeat; }
     .look-card:nth-child(3) { background: var(--brown) url("assets/banners/banner-hero-03.jpg") center center / cover no-repeat; }
@@ -1093,13 +1107,20 @@
         margin: -52px calc((100vw - min(100% - 36px, 1180px)) / -2) 54px;
         padding-left: max(24px, calc((100vw - 1180px) / 2));
       }
-      .collection-grid {
-        grid-template-columns: 1.18fr .82fr;
-        min-height: 560px;
-        gap: 18px;
+      .collection-carousel,
+      .look-carousel {
+        margin-inline: calc((100vw - min(100% - 36px, 1180px)) / -2);
+        padding-inline: max(24px, calc((100vw - 1180px) / 2));
       }
-      .collection-card { min-height: 100%; }
-      .collection-card:nth-child(2) { min-height: 100%; }
+      .collection-track,
+      .look-track {
+        --rail-gap: 18px;
+      }
+      .collection-card {
+        flex-basis: min(58vw, 690px);
+        min-height: 560px;
+      }
+      .collection-card--narrow { flex-basis: min(42vw, 480px); }
       .collection-card,
       .look-card,
       .product-card,
@@ -1197,13 +1218,14 @@
         font-size: 14px;
       }
       .look-grid {
-        grid-template-columns: 1.08fr .92fr .92fr;
-        gap: 16px;
+        display: block;
       }
       .look-card {
+        flex-basis: min(37vw, 450px);
         min-height: 470px;
         border-radius: 0;
       }
+      .look-card:nth-child(3n + 1) { flex-basis: min(44vw, 520px); }
       .review-grid {
         grid-template-columns: 1.15fr .92fr .92fr;
         align-items: start;
@@ -1228,13 +1250,15 @@
         line-height: 1.22;
       }
       .newsletter {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        gap: 28px;
+        grid-template-columns: minmax(260px, .55fr) minmax(420px, 1fr);
+        align-items: center;
+        justify-items: stretch;
+        gap: clamp(48px, 7vw, 104px);
         padding-block: 96px;
+        padding-inline: max(48px, calc((100vw - 1180px) / 2));
         background: var(--milk);
         color: var(--brown);
-        text-align: center;
+        text-align: left;
       }
       .newsletter .section-kicker,
       .newsletter p { color: var(--earth); }
@@ -1245,16 +1269,16 @@
       }
       .newsletter__statement {
         display: block;
-        max-width: 940px;
+        max-width: 780px;
         color: var(--brown);
-        font-size: clamp(2.8rem, 5vw, 5.6rem);
+        font-size: clamp(2.35rem, 4vw, 4.7rem);
         font-weight: 650;
         line-height: .93;
         text-transform: uppercase;
       }
       .newsletter-form {
-        width: min(100%, 560px);
-        margin-inline: auto;
+        width: min(100%, 620px);
+        margin-inline: 0;
       }
       .newsletter-form input {
         border-color: rgba(37,22,15,.16);
@@ -1294,20 +1318,19 @@
             <span class="brand-sub">Alma tropicana</span>
           </span>
         </a>
+        <nav class="shopify-tabs" aria-label="Navegacao de secoes" data-section-type="collection-list-tabs">
+          <a class="shopify-tab is-active" href="#featured-products">Novidades</a>
+          <a class="shopify-tab" href="#collections">Bolsas</a>
+          <a class="shopify-tab" href="#collections">Acessorios</a>
+          <a class="shopify-tab" href="#product-focus">Destaque</a>
+          <a class="shopify-tab" href="https://lirabrasil.com" target="_blank" rel="noreferrer">Loja oficial</a>
+        </nav>
         <nav class="icon-nav" aria-label="Acoes da loja">
           <a class="icon-btn" href="#collections" aria-label="Ver colecoes"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></a>
           <a class="icon-btn" href="#featured-products" aria-label="Ver produtos"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg></a>
         </nav>
       </div>
     </header>
-
-    <nav class="shopify-tabs" aria-label="Navegacao de secoes" data-section-type="collection-list-tabs">
-      <a class="shopify-tab is-active" href="#featured-products">Novidades</a>
-      <a class="shopify-tab" href="#collections">Bolsas</a>
-      <a class="shopify-tab" href="#collections">Acessorios</a>
-      <a class="shopify-tab" href="#product-focus">Destaque</a>
-      <a class="shopify-tab" href="https://lirabrasil.com" target="_blank" rel="noreferrer">Loja oficial</a>
-    </nav>
 
     <main id="top">
       <section class="hero section--flush" data-section-type="hero-banner" data-shopify-section-id="hero">
@@ -1346,23 +1369,57 @@
           <p class="section-copy">Categorias empilhadas, imagens amplas e CTAs claros criam uma jornada premium: desejo na primeira dobra, descoberta por colecao e clique imediato para produto.</p>
         </div>
         <div class="editorial-billboard desktop-only" aria-hidden="true">COLLECTIONS</div>
-        <div class="collection-grid">
-          <a class="collection-card" href="https://lirabrasil.com/collections/bolsas" target="_blank" rel="noreferrer" data-block-type="collection-card">
-            <img src="assets/banners/banner-hero-01.jpg" alt="Campanha Lira Brasil com Bolsa Alma em palha natural" loading="eager" decoding="async">
-            <span class="collection-card__content">
-              <span class="section-kicker">Produto assinatura</span>
-              <h3>Bolsa Alma</h3>
-              <p>Franja, volume e presenca. O produto ancora a narrativa artesanal e aumenta a percepcao de valor.</p>
-            </span>
-          </a>
-          <a class="collection-card" href="https://lirabrasil.com/collections/acessorios" target="_blank" rel="noreferrer" data-block-type="collection-card">
-            <img src="assets/banners/banner-hero-02.jpg" alt="Editorial Lira Brasil com acessorios artesanais" loading="eager" decoding="async">
-            <span class="collection-card__content">
-              <span class="section-kicker">Styling premium</span>
-              <h3>Acessorios solares</h3>
-              <p>Colares, kits e detalhes naturais para compor looks completos com leitura de boutique resort.</p>
-            </span>
-          </a>
+        <div class="collection-carousel" aria-label="Colecoes em carrossel infinito">
+          <div class="collection-track">
+            <a class="collection-card collection-card--wide" href="https://lirabrasil.com/collections/bolsas" target="_blank" rel="noreferrer" data-block-type="collection-card">
+              <img src="assets/banners/banner-hero-01.jpg" alt="Campanha Lira Brasil com Bolsa Alma em palha natural" loading="eager" decoding="async">
+              <span class="collection-card__content">
+                <span class="section-kicker">Produto assinatura</span>
+                <h3>Bolsa Alma</h3>
+                <p>Franja, volume e presenca. O produto ancora a narrativa artesanal e aumenta a percepcao de valor.</p>
+              </span>
+            </a>
+            <a class="collection-card collection-card--narrow" href="https://lirabrasil.com/collections/acessorios" target="_blank" rel="noreferrer" data-block-type="collection-card">
+              <img src="assets/banners/banner-hero-02.jpg" alt="Editorial Lira Brasil com acessorios artesanais" loading="eager" decoding="async">
+              <span class="collection-card__content">
+                <span class="section-kicker">Styling premium</span>
+                <h3>Acessorios solares</h3>
+                <p>Colares, kits e detalhes naturais para compor looks completos com leitura de boutique resort.</p>
+              </span>
+            </a>
+            <a class="collection-card collection-card--wide" href="https://lirabrasil.com/collections/roupas" target="_blank" rel="noreferrer" data-block-type="collection-card">
+              <img src="assets/banners/lira-label-hero.jpg" alt="Etiqueta Lira Brasil em textura artesanal" loading="eager" decoding="async">
+              <span class="collection-card__content">
+                <span class="section-kicker">Materia natural</span>
+                <h3>Trama Lira</h3>
+                <p>Detalhes de marca, textura e palha para reforcar autenticidade e desejo premium.</p>
+              </span>
+            </a>
+            <a class="collection-card collection-card--wide" href="https://lirabrasil.com/collections/bolsas" target="_blank" rel="noreferrer" data-block-type="collection-card" aria-hidden="true" tabindex="-1">
+              <img src="assets/banners/banner-hero-01.jpg" alt="" loading="eager" decoding="async">
+              <span class="collection-card__content">
+                <span class="section-kicker">Produto assinatura</span>
+                <h3>Bolsa Alma</h3>
+                <p>Franja, volume e presenca. O produto ancora a narrativa artesanal e aumenta a percepcao de valor.</p>
+              </span>
+            </a>
+            <a class="collection-card collection-card--narrow" href="https://lirabrasil.com/collections/acessorios" target="_blank" rel="noreferrer" data-block-type="collection-card" aria-hidden="true" tabindex="-1">
+              <img src="assets/banners/banner-hero-02.jpg" alt="" loading="eager" decoding="async">
+              <span class="collection-card__content">
+                <span class="section-kicker">Styling premium</span>
+                <h3>Acessorios solares</h3>
+                <p>Colares, kits e detalhes naturais para compor looks completos com leitura de boutique resort.</p>
+              </span>
+            </a>
+            <a class="collection-card collection-card--wide" href="https://lirabrasil.com/collections/roupas" target="_blank" rel="noreferrer" data-block-type="collection-card" aria-hidden="true" tabindex="-1">
+              <img src="assets/banners/lira-label-hero.jpg" alt="" loading="eager" decoding="async">
+              <span class="collection-card__content">
+                <span class="section-kicker">Materia natural</span>
+                <h3>Trama Lira</h3>
+                <p>Detalhes de marca, textura e palha para reforcar autenticidade e desejo premium.</p>
+              </span>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -1460,19 +1517,33 @@
           <p class="section-copy">Blocos visuais empilhados conduzem o olhar como editorial e funcionam como atalhos comerciais para colecoes.</p>
         </div>
         <div class="editorial-billboard desktop-only" aria-hidden="true">FOLLOW US</div>
-        <div class="look-grid">
-          <a class="look-card" href="https://lirabrasil.com/collections/bolsas" target="_blank" rel="noreferrer" data-block-type="look-card">
-            <img src="assets/banners/banner-hero-01.jpg" alt="Look Lira Brasil com Bolsa Alma artesanal" loading="eager" decoding="async">
-            <span class="look-card__content"><span class="section-kicker">Bolsas</span><h3>Bolsa Alma</h3><p>Texturas naturais e silhueta de impacto para o produto de maior faturamento.</p></span>
-          </a>
-          <a class="look-card" href="https://lirabrasil.com/collections/acessorios" target="_blank" rel="noreferrer" data-block-type="look-card">
-            <img src="assets/banners/banner-hero-02.jpg" alt="Acessorios artesanais Lira Brasil em composicao editorial" loading="eager" decoding="async">
-            <span class="look-card__content"><span class="section-kicker">Acessorios</span><h3>Solaris</h3><p>Detalhes naturais para ampliar ticket e completar a narrativa de styling.</p></span>
-          </a>
-          <a class="look-card" href="https://lirabrasil.com/collections/roupas" target="_blank" rel="noreferrer" data-block-type="look-card">
-            <img src="assets/banners/banner-hero-03.jpg" alt="Detalhe de marca Lira Brasil em tecido e palha natural" loading="eager" decoding="async">
-            <span class="look-card__content"><span class="section-kicker">Resortwear</span><h3>Maresia</h3><p>Base leve, palha e acessorios para transformar editorial em compra.</p></span>
-          </a>
+        <div class="look-carousel" aria-label="Lookbook em carrossel infinito">
+          <div class="look-track">
+            <a class="look-card" href="https://lirabrasil.com/collections/bolsas" target="_blank" rel="noreferrer" data-block-type="look-card">
+              <img src="assets/banners/banner-hero-01.jpg" alt="Look Lira Brasil com Bolsa Alma artesanal" loading="eager" decoding="async">
+              <span class="look-card__content"><span class="section-kicker">Bolsas</span><h3>Bolsa Alma</h3><p>Texturas naturais e silhueta de impacto para o produto de maior faturamento.</p></span>
+            </a>
+            <a class="look-card" href="https://lirabrasil.com/collections/acessorios" target="_blank" rel="noreferrer" data-block-type="look-card">
+              <img src="assets/banners/banner-hero-02.jpg" alt="Acessorios artesanais Lira Brasil em composicao editorial" loading="eager" decoding="async">
+              <span class="look-card__content"><span class="section-kicker">Acessorios</span><h3>Solaris</h3><p>Detalhes naturais para ampliar ticket e completar a narrativa de styling.</p></span>
+            </a>
+            <a class="look-card" href="https://lirabrasil.com/collections/roupas" target="_blank" rel="noreferrer" data-block-type="look-card">
+              <img src="assets/banners/banner-hero-03.jpg" alt="Detalhe de marca Lira Brasil em tecido e palha natural" loading="eager" decoding="async">
+              <span class="look-card__content"><span class="section-kicker">Resortwear</span><h3>Maresia</h3><p>Base leve, palha e acessorios para transformar editorial em compra.</p></span>
+            </a>
+            <a class="look-card" href="https://lirabrasil.com/collections/bolsas" target="_blank" rel="noreferrer" data-block-type="look-card" aria-hidden="true" tabindex="-1">
+              <img src="assets/banners/banner-hero-01.jpg" alt="" loading="eager" decoding="async">
+              <span class="look-card__content"><span class="section-kicker">Bolsas</span><h3>Bolsa Alma</h3><p>Texturas naturais e silhueta de impacto para o produto de maior faturamento.</p></span>
+            </a>
+            <a class="look-card" href="https://lirabrasil.com/collections/acessorios" target="_blank" rel="noreferrer" data-block-type="look-card" aria-hidden="true" tabindex="-1">
+              <img src="assets/banners/banner-hero-02.jpg" alt="" loading="eager" decoding="async">
+              <span class="look-card__content"><span class="section-kicker">Acessorios</span><h3>Solaris</h3><p>Detalhes naturais para ampliar ticket e completar a narrativa de styling.</p></span>
+            </a>
+            <a class="look-card" href="https://lirabrasil.com/collections/roupas" target="_blank" rel="noreferrer" data-block-type="look-card" aria-hidden="true" tabindex="-1">
+              <img src="assets/banners/banner-hero-03.jpg" alt="" loading="eager" decoding="async">
+              <span class="look-card__content"><span class="section-kicker">Resortwear</span><h3>Maresia</h3><p>Base leve, palha e acessorios para transformar editorial em compra.</p></span>
+            </a>
+          </div>
         </div>
       </section>
 
