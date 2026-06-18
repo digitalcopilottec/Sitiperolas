@@ -304,6 +304,11 @@
       opacity: 0;
       animation: heroFade 15s infinite;
     }
+    .hero__media--static img {
+      opacity: 1;
+      animation: none;
+      transform: scale(1.01);
+    }
     .hero__media img:nth-child(1) { opacity: 1; animation-delay: 0s; }
     .hero__media img:nth-child(2) { animation-delay: 5s; }
     .hero__media img:nth-child(3) { animation-delay: 10s; }
@@ -1306,10 +1311,8 @@
 
     <main id="top">
       <section class="hero section--flush" data-section-type="hero-banner" data-shopify-section-id="hero">
-        <div class="hero__media" data-block-type="image">
-          <img src="assets/banners/banner-hero-01.jpg" alt="Campanha Lira Brasil com modelos usando bolsas e acessorios artesanais" fetchpriority="high" decoding="async">
-          <img src="assets/banners/banner-hero-02.jpg" alt="Editorial Lira Brasil com acessorios artesanais em tons terrosos" loading="eager" decoding="async">
-          <img src="assets/banners/banner-hero-03.jpg" alt="Etiqueta Lira Brasil em trama artesanal com mensagem da marca" loading="eager" decoding="async">
+        <div class="hero__media hero__media--static" data-block-type="image">
+          <img src="assets/banners/lira-label-hero.jpg" alt="Etiqueta Lira Brasil em trama artesanal com mensagem da marca" fetchpriority="high" decoding="async">
         </div>
         <div class="hero__content">
           <div class="eyebrow" data-block-type="subheading">Nova colecao · feito a mao</div>
