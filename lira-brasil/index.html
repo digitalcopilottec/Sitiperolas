@@ -505,6 +505,12 @@
         radial-gradient(circle at 50% 20%, rgba(217,189,135,.18), transparent 34%),
         #fbfaf6;
     }
+    .product-card:nth-child(1) .product-card__media { background: #fbfaf6 url("assets/products/bolsa-lira-02.jpg") center center / 76% auto no-repeat; }
+    .product-card:nth-child(2) .product-card__media { background: #fbfaf6 url("assets/products/colar-c1-01.jpg") center center / 76% auto no-repeat; }
+    .product-card:nth-child(3) .product-card__media { background: #fbfaf6 url("assets/products/colar-c3-01.jpg") center center / 72% auto no-repeat; }
+    .product-card:nth-child(4) .product-card__media { background: #fbfaf6 url("assets/products/colar-c4-01.jpg") center center / 84% auto no-repeat; }
+    .product-card:nth-child(5) .product-card__media { background: #fbfaf6 url("assets/products/kit-01.jpg") center center / 78% auto no-repeat; }
+    .product-card:nth-child(6) .product-card__media { background: #fbfaf6 url("assets/products/saia-lira-01.png") center center / 74% auto no-repeat; }
     .product-card__media img {
       width: 100%;
       height: 100%;
@@ -1126,6 +1132,7 @@
       .product-card {
         flex-basis: calc((100% - 32px) / 3);
         min-width: 0;
+        scroll-snap-align: start;
         box-shadow: 0 12px 28px rgba(36,23,17,.075);
       }
       .product-card__body { padding: 16px; }
@@ -1518,9 +1525,11 @@
     const rail = document.querySelector(".product-rail");
     const form = document.querySelector(".newsletter-form");
 
-    if (rail && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (rail && !window.matchMedia("(prefers-reduced-motion: reduce)").matches && window.matchMedia("(max-width: 759px)").matches) {
       let timer = window.setInterval(() => {
-        const step = Math.min(326, rail.clientWidth * 0.78);
+        const firstCard = rail.querySelector(".product-card");
+        const gap = Number.parseFloat(getComputedStyle(rail).columnGap || getComputedStyle(rail).gap) || 0;
+        const step = firstCard ? firstCard.getBoundingClientRect().width + gap : Math.min(326, rail.clientWidth * 0.78);
         const end = rail.scrollWidth - rail.clientWidth - 4;
         const next = rail.scrollLeft + step;
         rail.scrollTo({ left: next >= end ? 0 : next, behavior: "smooth" });
